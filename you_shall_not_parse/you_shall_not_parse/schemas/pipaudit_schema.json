@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "dependencies": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "skip_reason": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "skip_reason"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "string"
+                            },
+                            "vulns": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "fix_versions": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "aliases": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "id",
+                                        "fix_versions"
+                                    ],
+                                    "additionalProperties": true
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "version",
+                            "vulns"
+                        ],
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        },
+        "fixes": {
+            "type": "array",
+            "items": {}
+        }
+    },
+    "required": [
+        "dependencies",
+        "fixes"
+    ],
+    "additionalProperties": false
+}

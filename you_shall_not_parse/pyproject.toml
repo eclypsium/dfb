@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "you_shall_not_parse"
+version = "0.5.1"
+description = ""
+authors = ["franco0700 <franco20.fl@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jmespath = "^1.0.1"
+types-jmespath = "^1.0.2.4"
+types-jsonschema = "^4.17.0.3"
+jsonschema = "^4.17.3"
+sqlalchemy = "^2.0.1"
+overrides = "^7.3.1"
+defusedxml = "^0.7.1"
+lxml = "^5.2.1"
+typing-extensions = "^4.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bandit]
+exclude_dirs = ["/tests/"]
+
+[tool.mypy]
+plugins = "sqlalchemy.ext.mypy.plugin"

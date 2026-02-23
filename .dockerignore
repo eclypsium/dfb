@@ -1,0 +1,9 @@
+**/__pycache__
+**/.mypy_cache
+**/.pytest_cache
+**/poetry.lock
+**/.git
+**/linters_results
+**/*.pyc
+**/venv
+**/.venv

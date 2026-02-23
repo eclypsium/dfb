@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "patternProperties": {
+        ".*": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "rank": {
+                            "type": "string"
+                        },
+                        "col_offset": {
+                            "type": "integer"
+                        },
+                        "endline": {
+                            "type": "integer"
+                        },
+                        "complexity": {
+                            "type": "integer"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "lineno": {
+                            "type": "integer"
+                        },
+                        "methods": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "rank",
+                        "col_offset",
+                        "endline",
+                        "complexity",
+                        "name",
+                        "lineno"
+                    ]
+                }
+            ]
+        }
+    }
+}

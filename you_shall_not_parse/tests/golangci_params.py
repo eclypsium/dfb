@@ -1,0 +1,61 @@
+from you_shall_not_parse.base_classes import Severity
+from typing import List, Tuple
+
+GOLANGCI_AMOUNT = 2
+GOLANGCI_ISSUES_AMOUNT = 51
+ALL_AMOUNT: int = GOLANGCI_AMOUNT + GOLANGCI_ISSUES_AMOUNT
+ALL_EXAMPLES = ["examples/golangci.json", "examples/golangci-with-issues.json"]
+
+GOLANGCI_EXPECTED: Tuple[List[Tuple[str, Severity, str, str, str, int]], str] = ([
+    ('golangci', Severity.WARNING, 'pkg/v2/models/requestparams.go', 'revive', 'exported: exported type Format should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'pkg/v2/models/requestparams.go', 'revive', 'exported: exported type DeviceReportParams should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/utils/utils.go', 'revive', 'exported: exported function FormatTime should have comment or be unexported', 7),
+    ('golangci', Severity.WARNING, 'pkg/v2/services/reportgeneration.go', 'revive', 'exported: exported type ReportGenerator should have comment or be unexported', 10),
+    ('golangci', Severity.WARNING, 'pkg/v2/services/reportgeneration.go', 'revive', 'exported: exported function NewGenerator should have comment or be unexported', 14),
+    ('golangci', Severity.WARNING, 'pkg/v2/services/reportgeneration.go', 'revive', 'exported: exported type Generator should have comment or be unexported', 19),
+    ('golangci', Severity.WARNING, 'pkg/v2/services/reportgeneration.go', 'revive', 'exported: exported method Generator.GenerateSPDXSBOM should have comment or be unexported', 21),
+    ('golangci', Severity.WARNING, 'legacy/config/config.go', 'revive', 'exported: exported type Config should have comment or be unexported', 11),
+    ('golangci', Severity.WARNING, 'legacy/config/config.go', 'revive', 'exported: exported type Reporter should have comment or be unexported', 18),
+    ('golangci', Severity.WARNING, 'legacy/config/config.go', 'revive', 'exported: exported function Check should have comment or be unexported', 61),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/fullhost.go', 'revive', "add-constant: avoid magic numbers like '24', create a named constant for it", 566),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/fullhost.go', 'revive', "add-constant: avoid magic numbers like '3', create a named constant for it", 619),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/fullhost.go', 'revive', "add-constant: avoid magic numbers like '24', create a named constant for it", 657),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/rmhdatalist.go', 'revive', 'exported: exported type RmhDataList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/rmhdatalist.go', 'revive', 'exported: exported type RmhData should have comment or be unexported', 10),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/bcmfirmwarestats.go', 'revive', 'exported: exported type BCMFirmwareStats should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/hostsoutdatingstatistics.go', 'revive', 'exported: exported type HostsOutdatingStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/hoststatistics.go', 'revive', 'exported: exported type HostStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/securitytestdefinition.go', 'revive', 'exported: exported type SecurityTestDefinition should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarehashlist.go', 'revive', 'exported: exported type FirmwareHashList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarestats.go', 'revive', 'exported: exported type FirmwareStats should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/hostgroup.go', 'revive', 'exported: exported type HostsGroup should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/networkcardlist.go', 'revive', 'exported: exported type NetworkCardList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/pcidevicestats.go', 'revive', 'exported: exported type PCIDeviceStats should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/tpmlist.go', 'revive', 'exported: exported type TPMList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/rmhdatahoststatistics.go', 'revive', 'exported: exported type RmhDataHostStatistics should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/rmhresultcache.go', 'revive', 'exported: exported type RmhResultCache should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/appdata.go', 'revive', 'exported: exported type AppData should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/componentinfo.go', 'revive', 'exported: exported type ComponentInfo should have comment or be unexported', 43),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/hoststypestatistics.go', 'revive', 'exported: exported type HostsTypeStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/outdatedtrendmonth.go', 'revive', 'exported: exported type OutdatedTrendMonth should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/pcidevicelist.go', 'revive', 'exported: exported type PCIDeviceList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/registrationstatistics.go', 'revive', 'exported: exported type RegistrationStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/mbr.go', 'revive', 'exported: exported type MBRStats should have comment or be unexported', 7),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/resourcelist.go', 'revive', 'exported: exported type ResourceList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/resourcestats.go', 'revive', 'exported: exported type ResourceStats should have comment or be unexported', 7),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/rmhinfo.go', 'revive', 'exported: exported type RmhInfo should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/threatgroup.go', 'revive', 'exported: exported type ThreatGroup should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/bcmfirmwarelist.go', 'revive', 'exported: exported type BCMFirmwareList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarehashintegrity.go', 'revive', 'exported: exported type FirmwareHashIntegrity should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/networkcardstats.go', 'revive', 'exported: exported type NetworkCardStats should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/common.go', 'revive', 'exported: exported type Meta should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarereleasestatistics.go', 'revive', 'exported: exported type FirmwareReleaseStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/threatstatistics.go', 'revive', 'exported: exported type ThreatStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/serverconfig.go', 'revive', 'exported: exported type ServerConfig should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/tpmstats.go', 'revive', 'exported: exported type TPMStats should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/baseline.go', 'revive', 'exported: exported type Baseline should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarelist.go', 'revive', 'exported: exported type FirmwareList should have comment or be unexported', 5),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/firmwarepassedstatistics.go', 'revive', 'exported: exported type FirmwarePassedStatistics should have comment or be unexported', 3),
+    ('golangci', Severity.WARNING, 'legacy/beapimashup/models/hashstatisticspaginatelist.go', 'revive', 'exported: exported type HashStatisticsPaginateList should have comment or be unexported', 5),
+    ('golangci', Severity.UNDEFINED, 'legacy/proto/gen/transports/grpc/gw/grpcgw.go', 'staticcheck', 'SA1019: "github.com/golang/protobuf/proto" is deprecated: Use the "google.golang.org/protobuf/proto" package instead. ', 10)
+], "examples/golangci-with-issues.json")

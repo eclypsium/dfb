@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "cppncss": {
+      "type": "object",
+      "properties": {
+        "measure": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {"type": "string"},
+                "labels": {"type": "object"},
+                "item": {
+                  "oneOf": [
+                    {"type": "object"},
+                    {"type": "array"}
+                  ]
+                }
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {"type": "string"},
+                  "labels": {"type": "object"},
+                  "item": {
+                    "oneOf": [
+                      {"type": "object"},
+                      {"type": "array"}
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": ["measure"]
+    }
+  },
+  "required": ["cppncss"]
+}

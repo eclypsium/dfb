@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "auditReportVersion": {
+            "type": "integer"
+        },
+        "vulnerabilities": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "string"
+                    },
+                    "isDirect": {
+                        "type": "boolean"
+                    },
+                    "via": {
+                        "type": "array"
+                    },
+                    "effects": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "range": {
+                        "type": "string"
+                    },
+                    "nodes": {
+                        "type": "array",
+                        "items": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "fixAvailable": {
+                        "type": [
+                            "boolean",
+                            "object"
+                        ]
+                    }
+                },
+                "required": [
+                    "name",
+                    "severity",
+                    "isDirect",
+                    "via",
+                    "effects",
+                    "range",
+                    "nodes",
+                    "fixAvailable"
+                ]
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "vulnerabilities": {
+                    "type": "object",
+                    "properties": {
+                        "info": {
+                            "type": "integer"
+                        },
+                        "low": {
+                            "type": "integer"
+                        },
+                        "moderate": {
+                            "type": "integer"
+                        },
+                        "high": {
+                            "type": "integer"
+                        },
+                        "critical": {
+                            "type": "integer"
+                        },
+                        "total": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "info",
+                        "low",
+                        "moderate",
+                        "high",
+                        "critical",
+                        "total"
+                    ]
+                },
+                "dependencies": {
+                    "type": "object",
+                    "properties": {
+                        "prod": {
+                            "type": "integer"
+                        },
+                        "dev": {
+                            "type": "integer"
+                        },
+                        "optional": {
+                            "type": "integer"
+                        },
+                        "peer": {
+                            "type": "integer"
+                        },
+                        "peerOptional": {
+                            "type": "integer"
+                        },
+                        "total": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "prod",
+                        "dev",
+                        "optional",
+                        "peer",
+                        "peerOptional",
+                        "total"
+                    ]
+                }
+            },
+            "required": [
+                "vulnerabilities",
+                "dependencies"
+            ]
+        }
+    },
+    "required": [
+        "auditReportVersion",
+        "vulnerabilities",
+        "metadata"
+    ]
+}

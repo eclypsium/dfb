@@ -1,0 +1,41 @@
+[
+    {
+        "type": "error",
+        "module": "abram.abram_engine",
+        "obj": "",
+        "line": 21,
+        "column": 0,
+        "endLine": 21,
+        "endColumn": 48,
+        "path": "abram/abram_engine.py",
+        "symbol": "import-error",
+        "message": "Unable to import 'abram_preprocessor.main'",
+        "message-id": "E0401"
+    },
+    {
+        "type": "error",
+        "module": "abram.abram_engine",
+        "obj": "",
+        "line": 22,
+        "column": 0,
+        "endLine": 22,
+        "endColumn": 46,
+        "path": "abram/abram_engine.py",
+        "symbol": "import-error",
+        "message": "Unable to import 'cdt_lib_engine.evaluator'",
+        "message-id": "E0401"
+    },
+    {
+        "type": "refactor",
+        "module": "abram.abram_engine",
+        "obj": "ABRAMExtension",
+        "line": 68,
+        "column": 0,
+        "endLine": 68,
+        "endColumn": 20,
+        "path": "abram/abram_engine.py",
+        "symbol": "too-few-public-methods",
+        "message": "Too few public methods (1/2)",
+        "message-id": "R0903"
+    }
+]

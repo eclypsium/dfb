@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "Issues": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "FromLinter": {
+                            "type": "string"
+                        },
+                        "Text": {
+                            "type": "string"
+                        },
+                        "Severity": {
+                            "type": "string"
+                        },
+                        "SourceLines": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "Replacement": {
+                            "type": "null"
+                        },
+                        "LineRange": {
+                            "type": "object",
+                            "properties": {
+                                "From": {
+                                    "type": "integer"
+                                },
+                                "To": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "From",
+                                "To"
+                            ]
+                        },
+                        "Pos": {
+                            "type": "object",
+                            "properties": {
+                                "Filename": {
+                                    "type": "string"
+                                },
+                                "Offset": {
+                                    "type": "integer"
+                                },
+                                "Line": {
+                                    "type": "integer"
+                                },
+                                "Column": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "Filename",
+                                "Offset",
+                                "Line",
+                                "Column"
+                            ]
+                        },
+                        "ExpectNoLint": {
+                            "type": "boolean"
+                        },
+                        "ExpectedNoLintLinter": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "FromLinter",
+                        "Text",
+                        "Severity",
+                        "SourceLines",
+                        "Replacement",
+                        "Pos",
+                        "ExpectNoLint",
+                        "ExpectedNoLintLinter"
+                    ]
+                }
+            ]
+        },
+        "Report": {
+            "type": "object",
+            "additionalProperties": {
+                "Linters": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "Name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Name"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "required": [
+        "Issues",
+        "Report"
+    ]
+}

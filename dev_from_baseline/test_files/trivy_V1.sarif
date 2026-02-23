@@ -1,0 +1,917 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "fullName": "Trivy Vulnerability Scanner",
+          "informationUri": "https://github.com/aquasecurity/trivy",
+          "name": "Trivy",
+          "rules": [
+            {
+              "id": "CVE-2022-3715",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "bash: a heap-buffer-overflow in valid_parameter_transform"
+              },
+              "fullDescription": {
+                "text": "A flaw was found in the bash package, where a heap-buffer overflow can occur in valid_parameter_transform. This issue may lead to memory problems."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-3715",
+              "help": {
+                "text": "Vulnerability CVE-2022-3715\nSeverity: LOW\nPackage: bash\nFixed Version: \nLink: [CVE-2022-3715](https://avd.aquasec.com/nvd/cve-2022-3715)\nA flaw was found in the bash package, where a heap-buffer overflow can occur in valid_parameter_transform. This issue may lead to memory problems.",
+                "markdown": "**Vulnerability CVE-2022-3715**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|bash||[CVE-2022-3715](https://avd.aquasec.com/nvd/cve-2022-3715)|\n\nA flaw was found in the bash package, where a heap-buffer overflow can occur in valid_parameter_transform. This issue may lead to memory problems."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2016-2781",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "coreutils: Non-privileged session can escape to the parent session in chroot"
+              },
+              "fullDescription": {
+                "text": "chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal\u0026#39;s input buffer."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2016-2781",
+              "help": {
+                "text": "Vulnerability CVE-2016-2781\nSeverity: LOW\nPackage: coreutils\nFixed Version: \nLink: [CVE-2016-2781](https://avd.aquasec.com/nvd/cve-2016-2781)\nchroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.",
+                "markdown": "**Vulnerability CVE-2016-2781**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|coreutils||[CVE-2016-2781](https://avd.aquasec.com/nvd/cve-2016-2781)|\n\nchroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-43552",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "curl: HTTP Proxy deny use-after-free"
+              },
+              "fullDescription": {
+                "text": "A vulnerability was found in curl. In this issue, curl can be asked to tunnel all protocols virtually it supports through an HTTP proxy. HTTP proxies can deny these tunnel operations using an appropriate HTTP error response code. When getting denied to tunnel the specific SMB or TELNET protocols, curl can use a heap-allocated struct after it has been freed and shut down the code path in its transfer."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-43552",
+              "help": {
+                "text": "Vulnerability CVE-2022-43552\nSeverity: MEDIUM\nPackage: libcurl4\nFixed Version: \nLink: [CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)\nA vulnerability was found in curl. In this issue, curl can be asked to tunnel all protocols virtually it supports through an HTTP proxy. HTTP proxies can deny these tunnel operations using an appropriate HTTP error response code. When getting denied to tunnel the specific SMB or TELNET protocols, curl can use a heap-allocated struct after it has been freed and shut down the code path in its transfer.",
+                "markdown": "**Vulnerability CVE-2022-43552**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|MEDIUM|libcurl4||[CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)|\n\nA vulnerability was found in curl. In this issue, curl can be asked to tunnel all protocols virtually it supports through an HTTP proxy. HTTP proxies can deny these tunnel operations using an appropriate HTTP error response code. When getting denied to tunnel the specific SMB or TELNET protocols, curl can use a heap-allocated struct after it has been freed and shut down the code path in its transfer."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "5.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-3219",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "gnupg: denial of service issue (resource consumption) using compressed packets"
+              },
+              "fullDescription": {
+                "text": "No description is available for this CVE."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-3219",
+              "help": {
+                "text": "Vulnerability CVE-2022-3219\nSeverity: LOW\nPackage: gpgv\nFixed Version: \nLink: [CVE-2022-3219](https://avd.aquasec.com/nvd/cve-2022-3219)\nNo description is available for this CVE.",
+                "markdown": "**Vulnerability CVE-2022-3219**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|gpgv||[CVE-2022-3219](https://avd.aquasec.com/nvd/cve-2022-3219)|\n\nNo description is available for this CVE."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2016-20013",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": "sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm\u0026#39;s runtime is proportional to the square of the length of the password."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2016-20013",
+              "help": {
+                "text": "Vulnerability CVE-2016-20013\nSeverity: LOW\nPackage: locales\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)\nsha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm's runtime is proportional to the square of the length of the password.",
+                "markdown": "**Vulnerability CVE-2016-20013**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|locales||[CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)|\n\nsha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm's runtime is proportional to the square of the length of the password."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-29458",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "ncurses: segfaulting OOB read"
+              },
+              "fullDescription": {
+                "text": "ncurses 6.3 before patch 20220416 has an out-of-bounds read and segmentation violation in convert_strings in tinfo/read_entry.c in the terminfo library."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-29458",
+              "help": {
+                "text": "Vulnerability CVE-2022-29458\nSeverity: LOW\nPackage: ncurses-bin\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)\nncurses 6.3 before patch 20220416 has an out-of-bounds read and segmentation violation in convert_strings in tinfo/read_entry.c in the terminfo library.",
+                "markdown": "**Vulnerability CVE-2022-29458**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|ncurses-bin||[CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)|\n\nncurses 6.3 before patch 20220416 has an out-of-bounds read and segmentation violation in convert_strings in tinfo/read_entry.c in the terminfo library."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2017-11164",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "pcre: OP_KETRMAX feature in the match function in pcre_exec.c"
+              },
+              "fullDescription": {
+                "text": "In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2017-11164",
+              "help": {
+                "text": "Vulnerability CVE-2017-11164\nSeverity: LOW\nPackage: libpcre3\nFixed Version: \nLink: [CVE-2017-11164](https://avd.aquasec.com/nvd/cve-2017-11164)\nIn PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.",
+                "markdown": "**Vulnerability CVE-2017-11164**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|libpcre3||[CVE-2017-11164](https://avd.aquasec.com/nvd/cve-2017-11164)|\n\nIn PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-3857",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "libpng: Null pointer dereference leads to segmentation fault"
+              },
+              "fullDescription": {
+                "text": "No description is available for this CVE."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-3857",
+              "help": {
+                "text": "Vulnerability CVE-2022-3857\nSeverity: LOW\nPackage: libpng16-16\nFixed Version: \nLink: [CVE-2022-3857](https://avd.aquasec.com/nvd/cve-2022-3857)\nNo description is available for this CVE.",
+                "markdown": "**Vulnerability CVE-2022-3857**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|libpng16-16||[CVE-2022-3857](https://avd.aquasec.com/nvd/cve-2022-3857)|\n\nNo description is available for this CVE."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-3996",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "openssl: double locking leads to denial of service"
+              },
+              "fullDescription": {
+                "text": "If an X.509 certificate contains a malformed policy constraint and policy processing is enabled, then a write lock will be taken twice recursively. On some operating systems (most widely: Windows) this results in a denial of service when the affected process hangs. Policy processing being enabled on a publicly facing server is not considered to be a common setup. Policy processing is enabled by passing the `-policy\u0026#39; argument to the command line utilities or by calling either `X509_VERIFY_PARAM_add0_policy()\u0026#39; or `X509_VERIFY_PARAM_set1_policies()\u0026#39; functions."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-3996",
+              "help": {
+                "text": "Vulnerability CVE-2022-3996\nSeverity: LOW\nPackage: openssl\nFixed Version: \nLink: [CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)\nIf an X.509 certificate contains a malformed policy constraint and policy processing is enabled, then a write lock will be taken twice recursively. On some operating systems (most widely: Windows) this results in a denial of service when the affected process hangs. Policy processing being enabled on a publicly facing server is not considered to be a common setup. Policy processing is enabled by passing the `-policy' argument to the command line utilities or by calling either `X509_VERIFY_PARAM_add0_policy()' or `X509_VERIFY_PARAM_set1_policies()' functions.",
+                "markdown": "**Vulnerability CVE-2022-3996**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|LOW|openssl||[CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)|\n\nIf an X.509 certificate contains a malformed policy constraint and policy processing is enabled, then a write lock will be taken twice recursively. On some operating systems (most widely: Windows) this results in a denial of service when the affected process hangs. Policy processing being enabled on a publicly facing server is not considered to be a common setup. Policy processing is enabled by passing the `-policy' argument to the command line utilities or by calling either `X509_VERIFY_PARAM_add0_policy()' or `X509_VERIFY_PARAM_set1_policies()' functions."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "2.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-3821",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "systemd: buffer overrun in format_timespan() function"
+              },
+              "fullDescription": {
+                "text": "An off-by-one Error issue was discovered in Systemd in format_timespan() function of time-util.c. An attacker could supply specific values for time and accuracy that leads to buffer overrun in format_timespan(), leading to a Denial of Service."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2022-3821",
+              "help": {
+                "text": "Vulnerability CVE-2022-3821\nSeverity: MEDIUM\nPackage: libudev1\nFixed Version: \nLink: [CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)\nAn off-by-one Error issue was discovered in Systemd in format_timespan() function of time-util.c. An attacker could supply specific values for time and accuracy that leads to buffer overrun in format_timespan(), leading to a Denial of Service.",
+                "markdown": "**Vulnerability CVE-2022-3821**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|MEDIUM|libudev1||[CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)|\n\nAn off-by-one Error issue was discovered in Systemd in format_timespan() function of time-util.c. An attacker could supply specific values for time and accuracy that leads to buffer overrun in format_timespan(), leading to a Denial of Service."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "5.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2021-31879",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "wget: authorization header disclosure on redirect"
+              },
+              "fullDescription": {
+                "text": "GNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2021-31879",
+              "help": {
+                "text": "Vulnerability CVE-2021-31879\nSeverity: MEDIUM\nPackage: wget\nFixed Version: \nLink: [CVE-2021-31879](https://avd.aquasec.com/nvd/cve-2021-31879)\nGNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007.",
+                "markdown": "**Vulnerability CVE-2021-31879**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|MEDIUM|wget||[CVE-2021-31879](https://avd.aquasec.com/nvd/cve-2021-31879)|\n\nGNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "5.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "MEDIUM"
+                ]
+              }
+            }
+          ],
+          "version": "0.35.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2022-3715",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "Package: bash\nInstalled Version: 5.1-6ubuntu1\nVulnerability CVE-2022-3715\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3715](https://avd.aquasec.com/nvd/cve-2022-3715)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: bash@5.1-6ubuntu1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-43551",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "Package: curl\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43551\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43551](https://avd.aquasec.com/nvd/cve-2022-43551)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: curl@7.81.0-1ubuntu1.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-43552",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "Package: curl\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43552\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: curl@7.81.0-1ubuntu1.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3219",
+          "ruleIndex": 4,
+          "level": "note",
+          "message": {
+            "text": "Package: gpgv\nInstalled Version: 2.2.27-3ubuntu2.1\nVulnerability CVE-2022-3219\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3219](https://avd.aquasec.com/nvd/cve-2022-3219)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: gpgv@2.2.27-3ubuntu2.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2016-20013",
+          "ruleIndex": 5,
+          "level": "note",
+          "message": {
+            "text": "Package: libc-bin\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libc-bin@2.35-0ubuntu3.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2016-20013",
+          "ruleIndex": 5,
+          "level": "note",
+          "message": {
+            "text": "Package: libc6\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libc6@2.35-0ubuntu3.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2016-20013",
+          "ruleIndex": 5,
+          "level": "note",
+          "message": {
+            "text": "Package: libc6\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libc6@2.35-0ubuntu3.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-43551",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "Package: libcurl4\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43551\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43551](https://avd.aquasec.com/nvd/cve-2022-43551)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libcurl4@7.81.0-1ubuntu1.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-43552",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "Package: libcurl4\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43552\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libcurl4@7.81.0-1ubuntu1.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-29458",
+          "ruleIndex": 6,
+          "level": "note",
+          "message": {
+            "text": "Package: libncurses6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libncurses6@6.3-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-29458",
+          "ruleIndex": 6,
+          "level": "note",
+          "message": {
+            "text": "Package: libncursesw6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libncursesw6@6.3-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2017-11164",
+          "ruleIndex": 7,
+          "level": "note",
+          "message": {
+            "text": "Package: libpcre3\nInstalled Version: 2:8.39-13ubuntu0.22.04.1\nVulnerability CVE-2017-11164\nSeverity: LOW\nFixed Version: \nLink: [CVE-2017-11164](https://avd.aquasec.com/nvd/cve-2017-11164)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libpcre3@2:8.39-13ubuntu0.22.04.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3857",
+          "ruleIndex": 8,
+          "level": "note",
+          "message": {
+            "text": "Package: libpng16-16\nInstalled Version: 1.6.37-3build5\nVulnerability CVE-2022-3857\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3857](https://avd.aquasec.com/nvd/cve-2022-3857)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libpng16-16@1.6.37-3build5"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3996",
+          "ruleIndex": 9,
+          "level": "note",
+          "message": {
+            "text": "Package: libssl3\nInstalled Version: 3.0.2-0ubuntu1.7\nVulnerability CVE-2022-3996\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libssl3@3.0.2-0ubuntu1.7"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3821",
+          "ruleIndex": 10,
+          "level": "warning",
+          "message": {
+            "text": "Package: libsystemd0\nInstalled Version: 249.11-0ubuntu3.6\nVulnerability CVE-2022-3821\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libsystemd0@249.11-0ubuntu3.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-29458",
+          "ruleIndex": 6,
+          "level": "note",
+          "message": {
+            "text": "Package: libtinfo6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libtinfo6@6.3-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3821",
+          "ruleIndex": 10,
+          "level": "warning",
+          "message": {
+            "text": "Package: libudev1\nInstalled Version: 249.11-0ubuntu3.6\nVulnerability CVE-2022-3821\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: libudev1@249.11-0ubuntu3.6"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2016-20013",
+          "ruleIndex": 5,
+          "level": "note",
+          "message": {
+            "text": "Package: locales\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: locales@2.35-0ubuntu3.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-29458",
+          "ruleIndex": 6,
+          "level": "note",
+          "message": {
+            "text": "Package: ncurses-base\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: ncurses-base@6.3-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-29458",
+          "ruleIndex": 6,
+          "level": "note",
+          "message": {
+            "text": "Package: ncurses-bin\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: ncurses-bin@6.3-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-3996",
+          "ruleIndex": 9,
+          "level": "note",
+          "message": {
+            "text": "Package: openssl\nInstalled Version: 3.0.2-0ubuntu1.7\nVulnerability CVE-2022-3996\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: openssl@3.0.2-0ubuntu1.7"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2021-31879",
+          "ruleIndex": 11,
+          "level": "warning",
+          "message": {
+            "text": "Package: wget\nInstalled Version: 1.21.2-2ubuntu1\nVulnerability CVE-2021-31879\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2021-31879](https://avd.aquasec.com/nvd/cve-2021-31879)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/7a1af8b86aa5",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/7a1af8b86aa5: wget@1.21.2-2ubuntu1"
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits",
+      "originalUriBaseIds": {
+        "ROOTPATH": {
+          "uri": "file:///"
+        }
+      }
+    }
+  ]
+}

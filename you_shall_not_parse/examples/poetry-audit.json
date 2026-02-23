@@ -1,0 +1,33 @@
+{
+    "vulnerabilities": [
+      {
+        "name": "certifi",
+        "installedVersion": "2022.9.24",
+        "vulns": [
+          {
+            "cve": "CVE-2022-23491",
+            "affectedVersion": "<2022.12.07",
+            "advisory": "Certifi 2022.12.07 includes a fix for CVE-2022-23491: Certifi 2022.12.07 removes root certificates from \"TrustCor\" from the root store. These are in the process of being removed from Mozilla's trust store. TrustCor's root certificates are being removed pursuant to an investigation prompted by media reporting that TrustCor's ownership also operated a business that produced spyware. Conclusions of Mozilla's investigation can be found in the linked google group discussion.\r\nhttps://github.com/certifi/python-certifi/security/advisories/GHSA-43fp-rhv2-5gv8\r\nhttps://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4/m/yLohoVqtCgAJ"
+          }
+        ]
+      },
+      {
+        "name": "py",
+        "installedVersion": "1.11.0",
+        "vulns": [
+          {
+            "cve": "CVE-2022-42969",
+            "affectedVersion": "<=1.11.0",
+            "advisory": "Py throughout 1.11.0 allows remote attackers to conduct a ReDoS (Regular expression Denial of Service) attack via a Subversion repository with crafted info data, because the InfoSvnCommand argument is mishandled.\r\nhttps://github.com/pytest-dev/py/issues/287"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "auditVersion": "0.2.0",
+      "poetry.lock": {
+        "updated": false,
+        "fresh": true
+      }
+    }
+  }

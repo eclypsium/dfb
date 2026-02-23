@@ -1,0 +1,1395 @@
+{
+    "Issues": [
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Format should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Format = string"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "pkg/v2/models/requestparams.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type DeviceReportParams should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type DeviceReportParams struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "pkg/v2/models/requestparams.go",
+                "Offset": 43,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported function FormatTime should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "func FormatTime(time time.Time, location *time.Location, layout string) string {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 7,
+                "To": 7
+            },
+            "Pos": {
+                "Filename": "legacy/utils/utils.go",
+                "Offset": 35,
+                "Line": 7,
+                "Column": 1
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ReportGenerator should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ReportGenerator interface {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 10,
+                "To": 10
+            },
+            "Pos": {
+                "Filename": "pkg/v2/services/reportgeneration.go",
+                "Offset": 100,
+                "Line": 10,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported function NewGenerator should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "func NewGenerator() *Generator {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 14,
+                "To": 14
+            },
+            "Pos": {
+                "Filename": "pkg/v2/services/reportgeneration.go",
+                "Offset": 221,
+                "Line": 14,
+                "Column": 1
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Generator should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Generator struct{}"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 19,
+                "To": 19
+            },
+            "Pos": {
+                "Filename": "pkg/v2/services/reportgeneration.go",
+                "Offset": 326,
+                "Line": 19,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported method Generator.GenerateSPDXSBOM should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "func (r Generator) GenerateSPDXSBOM(_ context.Context, _ *models.DeviceReportParams) ([]byte, error) {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 21,
+                "To": 21
+            },
+            "Pos": {
+                "Filename": "pkg/v2/services/reportgeneration.go",
+                "Offset": 346,
+                "Line": 21,
+                "Column": 1
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Config should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Config struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 11,
+                "To": 11
+            },
+            "Pos": {
+                "Filename": "legacy/config/config.go",
+                "Offset": 87,
+                "Line": 11,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Reporter should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Reporter struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 18,
+                "To": 18
+            },
+            "Pos": {
+                "Filename": "legacy/config/config.go",
+                "Offset": 402,
+                "Line": 18,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported function Check should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "func Check(c *Config) (bool, error) {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 61,
+                "To": 61
+            },
+            "Pos": {
+                "Filename": "legacy/config/config.go",
+                "Offset": 1834,
+                "Line": 61,
+                "Column": 1
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "add-constant: avoid magic numbers like '24', create a named constant for it",
+            "Severity": "warning",
+            "SourceLines": [
+                "\t\tres = int(time.Since(o.ResultCache.CheckDate).Hours() / 24)"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 566,
+                "To": 566
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/fullhost.go",
+                "Offset": 18799,
+                "Line": 566,
+                "Column": 59
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "add-constant: avoid magic numbers like '3', create a named constant for it",
+            "Severity": "warning",
+            "SourceLines": [
+                "\ttriplet := make([]string, 0, 3)"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 619,
+                "To": 619
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/fullhost.go",
+                "Offset": 20190,
+                "Line": 619,
+                "Column": 31
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "add-constant: avoid magic numbers like '24', create a named constant for it",
+            "Severity": "warning",
+            "SourceLines": [
+                "\t\tres = int(math.Ceil(now.Sub(lastCheckScan).Round(time.Hour).Hours() / 24))"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 657,
+                "To": 657
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/fullhost.go",
+                "Offset": 21311,
+                "Line": 657,
+                "Column": 73
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RmhDataList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RmhDataList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/rmhdatalist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RmhData should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RmhData struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 10,
+                "To": 10
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/rmhdatalist.go",
+                "Offset": 131,
+                "Line": 10,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type BCMFirmwareStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type BCMFirmwareStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/bcmfirmwarestats.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type HostsOutdatingStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type HostsOutdatingStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/hostsoutdatingstatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type HostStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type HostStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/hoststatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type SecurityTestDefinition should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type SecurityTestDefinition struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/securitytestdefinition.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwareHashList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwareHashList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarehashlist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwareStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwareStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarestats.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type HostsGroup should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type HostsGroup struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/hostgroup.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type NetworkCardList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type NetworkCardList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/networkcardlist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type PCIDeviceStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type PCIDeviceStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/pcidevicestats.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type TPMList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type TPMList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/tpmlist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RmhDataHostStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RmhDataHostStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/rmhdatahoststatistics.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RmhResultCache should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RmhResultCache struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/rmhresultcache.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type AppData should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type AppData struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/appdata.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ComponentInfo should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ComponentInfo struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 43,
+                "To": 43
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/componentinfo.go",
+                "Offset": 609,
+                "Line": 43,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type HostsTypeStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type HostsTypeStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/hoststypestatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type OutdatedTrendMonth should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type OutdatedTrendMonth struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/outdatedtrendmonth.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type PCIDeviceList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type PCIDeviceList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/pcidevicelist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RegistrationStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RegistrationStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/registrationstatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type MBRStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type MBRStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 7,
+                "To": 7
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/mbr.go",
+                "Offset": 41,
+                "Line": 7,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ResourceList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ResourceList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/resourcelist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ResourceStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ResourceStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 7,
+                "To": 7
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/resourcestats.go",
+                "Offset": 41,
+                "Line": 7,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type RmhInfo should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type RmhInfo struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/rmhinfo.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ThreatGroup should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ThreatGroup struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/threatgroup.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type BCMFirmwareList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type BCMFirmwareList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/bcmfirmwarelist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwareHashIntegrity should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwareHashIntegrity struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarehashintegrity.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type NetworkCardStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type NetworkCardStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/networkcardstats.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Meta should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Meta struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/common.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwareReleaseStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwareReleaseStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarereleasestatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ThreatStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ThreatStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/threatstatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type ServerConfig should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type ServerConfig struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/serverconfig.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type TPMStats should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type TPMStats struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/tpmstats.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type Baseline should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type Baseline struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/baseline.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwareList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwareList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarelist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type FirmwarePassedStatistics should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type FirmwarePassedStatistics struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 3,
+                "To": 3
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/firmwarepassedstatistics.go",
+                "Offset": 21,
+                "Line": 3,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "revive",
+            "Text": "exported: exported type HashStatisticsPaginateList should have comment or be unexported",
+            "Severity": "warning",
+            "SourceLines": [
+                "type HashStatisticsPaginateList struct {"
+            ],
+            "Replacement": null,
+            "LineRange": {
+                "From": 5,
+                "To": 5
+            },
+            "Pos": {
+                "Filename": "legacy/beapimashup/models/hashstatisticspaginatelist.go",
+                "Offset": 36,
+                "Line": 5,
+                "Column": 6
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "staticcheck",
+            "Text": "SA1019: \"github.com/golang/protobuf/proto\" is deprecated: Use the \"google.golang.org/protobuf/proto\" package instead. ",
+            "Severity": "",
+            "SourceLines": [
+                "\t\"github.com/golang/protobuf/proto\""
+            ],
+            "Replacement": null,
+            "Pos": {
+                "Filename": "legacy/proto/gen/transports/grpc/gw/grpcgw.go",
+                "Offset": 91,
+                "Line": 10,
+                "Column": 2
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        }
+    ],
+    "Report": {
+        "Linters": [
+            {
+                "Name": "asasalint"
+            },
+            {
+                "Name": "asciicheck"
+            },
+            {
+                "Name": "bidichk"
+            },
+            {
+                "Name": "bodyclose"
+            },
+            {
+                "Name": "containedctx"
+            },
+            {
+                "Name": "contextcheck"
+            },
+            {
+                "Name": "cyclop"
+            },
+            {
+                "Name": "decorder"
+            },
+            {
+                "Name": "deadcode"
+            },
+            {
+                "Name": "depguard"
+            },
+            {
+                "Name": "dogsled"
+            },
+            {
+                "Name": "dupl"
+            },
+            {
+                "Name": "dupword"
+            },
+            {
+                "Name": "durationcheck"
+            },
+            {
+                "Name": "errcheck",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "errchkjson"
+            },
+            {
+                "Name": "errname"
+            },
+            {
+                "Name": "errorlint"
+            },
+            {
+                "Name": "execinquery"
+            },
+            {
+                "Name": "exhaustive"
+            },
+            {
+                "Name": "exhaustivestruct"
+            },
+            {
+                "Name": "exhaustruct"
+            },
+            {
+                "Name": "exportloopref"
+            },
+            {
+                "Name": "forbidigo"
+            },
+            {
+                "Name": "forcetypeassert"
+            },
+            {
+                "Name": "funlen"
+            },
+            {
+                "Name": "gci"
+            },
+            {
+                "Name": "gochecknoglobals"
+            },
+            {
+                "Name": "gochecknoinits"
+            },
+            {
+                "Name": "gocognit"
+            },
+            {
+                "Name": "goconst",
+                "Enabled": true
+            },
+            {
+                "Name": "gocritic"
+            },
+            {
+                "Name": "gocyclo",
+                "Enabled": true
+            },
+            {
+                "Name": "godot"
+            },
+            {
+                "Name": "godox"
+            },
+            {
+                "Name": "goerr113"
+            },
+            {
+                "Name": "gofmt"
+            },
+            {
+                "Name": "gofumpt"
+            },
+            {
+                "Name": "goheader"
+            },
+            {
+                "Name": "goimports",
+                "Enabled": true
+            },
+            {
+                "Name": "golint"
+            },
+            {
+                "Name": "gomnd"
+            },
+            {
+                "Name": "gomoddirectives"
+            },
+            {
+                "Name": "gomodguard"
+            },
+            {
+                "Name": "goprintffuncname"
+            },
+            {
+                "Name": "gosec",
+                "Enabled": true
+            },
+            {
+                "Name": "gosimple",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "govet",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "grouper"
+            },
+            {
+                "Name": "ifshort"
+            },
+            {
+                "Name": "importas"
+            },
+            {
+                "Name": "ineffassign",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "interfacebloat"
+            },
+            {
+                "Name": "interfacer"
+            },
+            {
+                "Name": "ireturn"
+            },
+            {
+                "Name": "lll"
+            },
+            {
+                "Name": "loggercheck"
+            },
+            {
+                "Name": "maintidx"
+            },
+            {
+                "Name": "makezero"
+            },
+            {
+                "Name": "maligned"
+            },
+            {
+                "Name": "misspell",
+                "Enabled": true
+            },
+            {
+                "Name": "nakedret"
+            },
+            {
+                "Name": "nestif"
+            },
+            {
+                "Name": "nilerr"
+            },
+            {
+                "Name": "nilnil"
+            },
+            {
+                "Name": "nlreturn"
+            },
+            {
+                "Name": "noctx"
+            },
+            {
+                "Name": "nonamedreturns"
+            },
+            {
+                "Name": "nosnakecase"
+            },
+            {
+                "Name": "nosprintfhostport"
+            },
+            {
+                "Name": "paralleltest"
+            },
+            {
+                "Name": "prealloc"
+            },
+            {
+                "Name": "predeclared"
+            },
+            {
+                "Name": "promlinter"
+            },
+            {
+                "Name": "reassign"
+            },
+            {
+                "Name": "revive",
+                "Enabled": true
+            },
+            {
+                "Name": "rowserrcheck"
+            },
+            {
+                "Name": "scopelint"
+            },
+            {
+                "Name": "sqlclosecheck"
+            },
+            {
+                "Name": "staticcheck",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "structcheck"
+            },
+            {
+                "Name": "stylecheck"
+            },
+            {
+                "Name": "tagliatelle"
+            },
+            {
+                "Name": "tenv"
+            },
+            {
+                "Name": "testableexamples"
+            },
+            {
+                "Name": "testpackage"
+            },
+            {
+                "Name": "thelper"
+            },
+            {
+                "Name": "tparallel"
+            },
+            {
+                "Name": "typecheck",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "unconvert"
+            },
+            {
+                "Name": "unparam"
+            },
+            {
+                "Name": "unused",
+                "Enabled": true,
+                "EnabledByDefault": true
+            },
+            {
+                "Name": "usestdlibvars"
+            },
+            {
+                "Name": "varcheck"
+            },
+            {
+                "Name": "varnamelen"
+            },
+            {
+                "Name": "wastedassign"
+            },
+            {
+                "Name": "whitespace"
+            },
+            {
+                "Name": "wrapcheck"
+            },
+            {
+                "Name": "wsl"
+            },
+            {
+                "Name": "nolintlint"
+            }
+        ]
+    }
+}

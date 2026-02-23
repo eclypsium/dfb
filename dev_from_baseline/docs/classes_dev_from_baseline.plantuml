@@ -1,0 +1,71 @@
+@startuml classes_dev_from_baseline
+set namespaceSeparator none
+class "Baseline" as dev_from_baseline.baseline.Baseline {
+  filename : str
+  json : Optional[BaselineDictType], dict
+  compare_against_db(database: Database) -> CompareType
+  generate_baseline_from_db(database: Database) -> None
+  read_baseline() -> None
+  save_baseline() -> None
+}
+Enum "BaselineResult" as dev_from_baseline.baseline.BaselineResult {
+  Success
+  Fail
+}
+class "CompareResult" as dev_from_baseline.baseline.CompareResult {
+  files : str
+  total : str
+}
+class "Counter" as dev_from_baseline.counter.Counter {
+  high : int
+  low : int
+  medium : int
+  note : int
+  total : int
+  undefined : int
+  warning : int
+  add_counters(counters: list[Counter]) -> None
+  from_tuple(tup: 'CounterType') -> Counter
+  score() -> int
+  to_text() -> Text
+  to_tuple() -> 'CounterType'
+}
+class "CounterType" as dev_from_baseline.baseline.CounterType {
+  high : int
+  low : int
+  medium : int
+  note : int
+  total : int
+  undefined : int
+  warning : int
+}
+class "DiffPrinter" as dev_from_baseline.main.DiffPrinter {
+  text : Text
+  total : int
+  add(previous: int, current: int, label: str) -> None
+  append_text(delta: int, label: str) -> None
+  get_style(delta: int) -> str
+  get_text() -> Text
+}
+class "LinterJson" as dev_from_baseline.baseline.LinterJson {
+  files : str
+  total : str
+}
+class "OldCounterAndNewOneType" as dev_from_baseline.baseline.OldCounterAndNewOneType {
+  new
+  old
+}
+class "Main" as dev_from_baseline.main {
+  main(basefile, report_files, generate, verbose)
+  show_results(results: LintersCompareType)
+}
+
+dev_from_baseline.main <-up- dev_from_baseline.main.DiffPrinter
+dev_from_baseline.main *-right dev_from_baseline.baseline.BaselineResult
+dev_from_baseline.main *-left dev_from_baseline.baseline.Baseline
+dev_from_baseline.baseline.Baseline o-up- dev_from_baseline.baseline.CounterType
+dev_from_baseline.baseline.Baseline o-up dev_from_baseline.baseline.CompareResult
+dev_from_baseline.baseline.Baseline o-up dev_from_baseline.baseline.LinterJson
+dev_from_baseline.baseline.Baseline o-up- dev_from_baseline.baseline.OldCounterAndNewOneType
+dev_from_baseline.baseline.Baseline o-up- dev_from_baseline.counter.Counter
+@enduml

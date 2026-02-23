@@ -1,0 +1,121 @@
+@startuml classes_parser
+set namespaceSeparator none
+class "Base" as database.Base {
+  as_dict() -> dict[str, str]
+}
+class "ConsoleObserver" as observers.ConsoleObserver {
+  +add_issue(linter_name: str, issue: IssueTupleType) -> None
+}
+class "DBObserver" as observers.DBObserver {
+  database : Database
+  +add_issue(linter_name: str, issue: IssueTupleType) -> None
+  +get_database() -> Database
+}
+class "Database" as database.Database {
+  engine
+  session
+  +add_issue(linter_name: str, issue: IssueTupleType) -> None
+  +as_json() -> str
+  +count(condition: str) -> Any
+  +query(query_str: str) -> Any
+}
+class "Driver" as observers.Driver {
+  name : Optional[str]
+  rules : list[str]
+}
+class "Issue" as database.Issue {
+  file_path
+  id
+  linter_name
+  location
+  message
+  name
+  severity
+}
+class "JmespathParserHandler" as handler_classes.JmespathParserHandler {
+  JMESPATHQUERY : str
+  LINTER_NAME : str
+  OPTIONS : Optional[jmespath.Options]
+  SCHEMA_FILENAME : str
+  observer: Observer
+  -check_vuln(vuln: SearchedType) -> None
+  -get_issue(issue: list[str]) -> Optional[IssueTupleType]
+  +handle(request: str, observer: Observer) -> ReturnHandleType
+  -parse(request: str) -> None
+}
+interface "Observer" as observers.Observer {
+  +{abstract}add_issue(linter_name: str, issue: IssueTupleType) -> None
+}
+class "Parser" as parser.Parser {
+  chain : ParserHandler
+  observer : Observer
+  +parse(file_name: list[str], observer: Observer) -> None
+}
+interface "ParserHandler" as handler_classes.ParserHandler {
+  +{abstract}handle(request: str, observer: Observer) -> ReturnHandleType
+  +{abstract}set_next(handler: ParserHandler) -> ParserHandler
+}
+class "ParserHandlerImplementation" as handler_classes.ParserHandlerImplementation {
+  observer: Observer
+  +handle(request: str, observer: Observer) -> ReturnHandleType
+  +{abstract}parse_level(level: str) -> Severity
+  +set_next(handler: ParserHandler) -> ParserHandler
+}
+class "PhysicalLocation" as observers.PhysicalLocation {
+  artifactLocation : FilenameLocationType
+  region : FileLineType
+}
+class "Results" as observers.Results {
+  level : str
+  locations : list[dict[str, PhysicalLocation]]
+  message : dict[str, str]
+  ruleId : str
+}
+class "Runs" as observers.Runs {
+  results : list[Results]
+  tool
+}
+class "SarifObserver" as observers.SarifObserver {
+  index : int
+  sarif : TypedDict
+  seen_linters : list[str]
+  tools
+  +add_issue(linter_name: str, issue: IssueTupleType) -> None
+  +get_sarif_json() -> SarifType
+}
+class "Sarif" as observers.Sarif{
+  $schema: str
+  runs: list[Runs]
+}
+enum "Severity" as base_classes.Severity {
+  HIGH
+  MEDIUM
+  LOW
+  WARNING
+  NOTE
+  UNDEFINED
+}
+class "Tools" as observers.Tools {
+  driver
+}
+database.Issue -up-|> database.Base
+database.Base -up-|> sqlAlchemy.DeclarativeBase
+observers.DBObserver *-up- database.Database : database
+handler_classes.JmespathParserHandler -down-|> handler_classes.ParserHandlerImplementation
+handler_classes.ParserHandlerImplementation -down-|> handler_classes.ParserHandler
+observers.ConsoleObserver --|> observers.Observer
+observers.DBObserver --|> observers.Observer
+observers.SarifObserver --|> observers.Observer
+observers.SarifObserver *-up- observers.Sarif : sarif
+observers.Driver --* observers.Tools : driver
+observers.Results *-up- observers.PhysicalLocation : location
+observers.Runs --* observers.Sarif : runs
+observers.Results -down-* observers.Runs : results
+observers.Tools --* observers.Runs : tool
+handler_classes.ParserHandler -up-o handler_classes.ParserHandlerImplementation : _next_handler
+database.Issue *-up- base_classes.Severity : severity
+database.Database *-up- database.Issue
+
+parser.Parser *-up- observers.Observer : observer
+parser.Parser *-up- handler_classes.ParserHandler : chain
+@enduml

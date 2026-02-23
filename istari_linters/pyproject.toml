@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "istari-linters"
+version = "0.1.0"
+description = ""
+authors = ["Franco0700 <franco.lombroni@eclypsium.com>"]
+readme = "README.md"
+packages = [{include = "istari_linters"}]
+
+[tool.bandit]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+tomli = "^2.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
