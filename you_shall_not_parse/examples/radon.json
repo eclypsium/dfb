@@ -1,0 +1,848 @@
+{
+    "you_shall_not_parse/base_classes.py": [
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 42,
+            "complexity": 3,
+            "name": "File",
+            "lineno": 27,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 33,
+                    "classname": "File",
+                    "complexity": 2,
+                    "name": "__init__",
+                    "lineno": 28,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 37,
+                    "classname": "File",
+                    "complexity": 1,
+                    "name": "__iter__",
+                    "lineno": 35,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 42,
+                    "classname": "File",
+                    "complexity": 2,
+                    "name": "__next__",
+                    "lineno": 39,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 66,
+            "complexity": 3,
+            "name": "Files",
+            "lineno": 44,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 49,
+                    "classname": "Files",
+                    "complexity": 2,
+                    "name": "__init__",
+                    "lineno": 45,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 53,
+                    "classname": "Files",
+                    "complexity": 1,
+                    "name": "__iter__",
+                    "lineno": 51,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 58,
+                    "classname": "Files",
+                    "complexity": 2,
+                    "name": "__next__",
+                    "lineno": 55,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 63,
+                    "classname": "Files",
+                    "complexity": 3,
+                    "name": "iter_issues",
+                    "lineno": 60,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 66,
+                    "classname": "Files",
+                    "complexity": 1,
+                    "name": "new_file",
+                    "lineno": 65,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 63,
+            "classname": "Files",
+            "complexity": 3,
+            "name": "iter_issues",
+            "lineno": 60,
+            "closures": []
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 24,
+            "complexity": 2,
+            "name": "Issue",
+            "lineno": 16,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 24,
+                    "classname": "Issue",
+                    "complexity": 1,
+                    "name": "__init__",
+                    "lineno": 17,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 33,
+            "classname": "File",
+            "complexity": 2,
+            "name": "__init__",
+            "lineno": 28,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 42,
+            "classname": "File",
+            "complexity": 2,
+            "name": "__next__",
+            "lineno": 39,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 49,
+            "classname": "Files",
+            "complexity": 2,
+            "name": "__init__",
+            "lineno": 45,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 58,
+            "classname": "Files",
+            "complexity": 2,
+            "name": "__next__",
+            "lineno": 55,
+            "closures": []
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 13,
+            "complexity": 1,
+            "name": "Level",
+            "lineno": 7,
+            "methods": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 24,
+            "classname": "Issue",
+            "complexity": 1,
+            "name": "__init__",
+            "lineno": 17,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 37,
+            "classname": "File",
+            "complexity": 1,
+            "name": "__iter__",
+            "lineno": 35,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 53,
+            "classname": "Files",
+            "complexity": 1,
+            "name": "__iter__",
+            "lineno": 51,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 66,
+            "classname": "Files",
+            "complexity": 1,
+            "name": "new_file",
+            "lineno": 65,
+            "closures": []
+        }
+    ],
+    "you_shall_not_parse/parser.py": [
+        {
+            "type": "function",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 61,
+            "complexity": 4,
+            "name": "_helper_loader",
+            "lineno": 53,
+            "closures": []
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 27,
+            "complexity": 4,
+            "name": "Parser",
+            "lineno": 12,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 15,
+                    "classname": "Parser",
+                    "complexity": 1,
+                    "name": "__init__",
+                    "lineno": 14,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 27,
+                    "classname": "Parser",
+                    "complexity": 4,
+                    "name": "parse",
+                    "lineno": 17,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 27,
+            "classname": "Parser",
+            "complexity": 4,
+            "name": "parse",
+            "lineno": 17,
+            "closures": []
+        },
+        {
+            "type": "function",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 38,
+            "complexity": 3,
+            "name": "_get_chain",
+            "lineno": 29,
+            "closures": []
+        },
+        {
+            "type": "function",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 51,
+            "complexity": 2,
+            "name": "_load_module",
+            "lineno": 40,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 15,
+            "classname": "Parser",
+            "complexity": 1,
+            "name": "__init__",
+            "lineno": 14,
+            "closures": []
+        }
+    ],
+    "you_shall_not_parse/handler_classes.py": [
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 18,
+            "complexity": 2,
+            "name": "ParserHandler",
+            "lineno": 6,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 14,
+                    "classname": "ParserHandler",
+                    "complexity": 1,
+                    "name": "set_next",
+                    "lineno": 13,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 18,
+                    "classname": "ParserHandler",
+                    "complexity": 1,
+                    "name": "handle",
+                    "lineno": 17,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 40,
+            "complexity": 2,
+            "name": "ParserHandlerImplementation",
+            "lineno": 21,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 29,
+                    "classname": "ParserHandlerImplementation",
+                    "complexity": 1,
+                    "name": "set_next",
+                    "lineno": 27,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 36,
+                    "classname": "ParserHandlerImplementation",
+                    "complexity": 2,
+                    "name": "handle",
+                    "lineno": 33,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 40,
+                    "classname": "ParserHandlerImplementation",
+                    "complexity": 1,
+                    "name": "parse_level",
+                    "lineno": 39,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 36,
+            "classname": "ParserHandlerImplementation",
+            "complexity": 2,
+            "name": "handle",
+            "lineno": 33,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 14,
+            "classname": "ParserHandler",
+            "complexity": 1,
+            "name": "set_next",
+            "lineno": 13,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 18,
+            "classname": "ParserHandler",
+            "complexity": 1,
+            "name": "handle",
+            "lineno": 17,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 29,
+            "classname": "ParserHandlerImplementation",
+            "complexity": 1,
+            "name": "set_next",
+            "lineno": 27,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 40,
+            "classname": "ParserHandlerImplementation",
+            "complexity": 1,
+            "name": "parse_level",
+            "lineno": 39,
+            "closures": []
+        }
+    ],
+    "parsers/npm.py": [
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 29,
+            "classname": "NpmHandler",
+            "complexity": 4,
+            "name": "parse_npm",
+            "lineno": 19,
+            "closures": []
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 54,
+            "complexity": 3,
+            "name": "NpmHandler",
+            "lineno": 11,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 17,
+                    "classname": "NpmHandler",
+                    "complexity": 2,
+                    "name": "handle",
+                    "lineno": 12,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 29,
+                    "classname": "NpmHandler",
+                    "complexity": 4,
+                    "name": "parse_npm",
+                    "lineno": 19,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 41,
+                    "classname": "NpmHandler",
+                    "complexity": 3,
+                    "name": "get_issues",
+                    "lineno": 31,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 54,
+                    "classname": "NpmHandler",
+                    "complexity": 1,
+                    "name": "parse_level",
+                    "lineno": 43,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 41,
+            "classname": "NpmHandler",
+            "complexity": 3,
+            "name": "get_issues",
+            "lineno": 31,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 17,
+            "classname": "NpmHandler",
+            "complexity": 2,
+            "name": "handle",
+            "lineno": 12,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 54,
+            "classname": "NpmHandler",
+            "complexity": 1,
+            "name": "parse_level",
+            "lineno": 43,
+            "closures": []
+        }
+    ],
+    "parsers/golanci.py": [
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 46,
+            "complexity": 3,
+            "name": "GolangCiHandler",
+            "lineno": 9,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 18,
+                    "classname": "GolangCiHandler",
+                    "complexity": 3,
+                    "name": "handle",
+                    "lineno": 10,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 31,
+                    "classname": "GolangCiHandler",
+                    "complexity": 3,
+                    "name": "parse_golangci",
+                    "lineno": 20,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 46,
+                    "classname": "GolangCiHandler",
+                    "complexity": 1,
+                    "name": "parse_level",
+                    "lineno": 33,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 18,
+            "classname": "GolangCiHandler",
+            "complexity": 3,
+            "name": "handle",
+            "lineno": 10,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 31,
+            "classname": "GolangCiHandler",
+            "complexity": 3,
+            "name": "parse_golangci",
+            "lineno": 20,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 46,
+            "classname": "GolangCiHandler",
+            "complexity": 1,
+            "name": "parse_level",
+            "lineno": 33,
+            "closures": []
+        }
+    ],
+    "parsers/pip_audit.py": [
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 40,
+            "complexity": 3,
+            "name": "PipAuditHandler",
+            "lineno": 11,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 17,
+                    "classname": "PipAuditHandler",
+                    "complexity": 2,
+                    "name": "handle",
+                    "lineno": 12,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 27,
+                    "classname": "PipAuditHandler",
+                    "complexity": 3,
+                    "name": "parse_pipaudit",
+                    "lineno": 19,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 36,
+                    "classname": "PipAuditHandler",
+                    "complexity": 2,
+                    "name": "get_issues",
+                    "lineno": 29,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 40,
+                    "classname": "PipAuditHandler",
+                    "complexity": 1,
+                    "name": "parse_level",
+                    "lineno": 38,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 27,
+            "classname": "PipAuditHandler",
+            "complexity": 3,
+            "name": "parse_pipaudit",
+            "lineno": 19,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 17,
+            "classname": "PipAuditHandler",
+            "complexity": 2,
+            "name": "handle",
+            "lineno": 12,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 36,
+            "classname": "PipAuditHandler",
+            "complexity": 2,
+            "name": "get_issues",
+            "lineno": 29,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 40,
+            "classname": "PipAuditHandler",
+            "complexity": 1,
+            "name": "parse_level",
+            "lineno": 38,
+            "closures": []
+        }
+    ],
+    "parsers/sarif.py": [
+        {
+            "type": "method",
+            "rank": "B",
+            "col_offset": 4,
+            "endline": 53,
+            "classname": "SarifHandler",
+            "complexity": 6,
+            "name": "parse_rules",
+            "lineno": 41,
+            "closures": []
+        },
+        {
+            "type": "class",
+            "rank": "A",
+            "col_offset": 0,
+            "endline": 64,
+            "complexity": 5,
+            "name": "SarifHandler",
+            "lineno": 11,
+            "methods": [
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 26,
+                    "classname": "SarifHandler",
+                    "complexity": 5,
+                    "name": "handle",
+                    "lineno": 12,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 39,
+                    "classname": "SarifHandler",
+                    "complexity": 3,
+                    "name": "parse_results",
+                    "lineno": 28,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "B",
+                    "col_offset": 4,
+                    "endline": 53,
+                    "classname": "SarifHandler",
+                    "complexity": 6,
+                    "name": "parse_rules",
+                    "lineno": 41,
+                    "closures": []
+                },
+                {
+                    "type": "method",
+                    "rank": "A",
+                    "col_offset": 4,
+                    "endline": 64,
+                    "classname": "SarifHandler",
+                    "complexity": 1,
+                    "name": "parse_level",
+                    "lineno": 55,
+                    "closures": []
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 26,
+            "classname": "SarifHandler",
+            "complexity": 5,
+            "name": "handle",
+            "lineno": 12,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 39,
+            "classname": "SarifHandler",
+            "complexity": 3,
+            "name": "parse_results",
+            "lineno": 28,
+            "closures": []
+        },
+        {
+            "type": "method",
+            "rank": "A",
+            "col_offset": 4,
+            "endline": 64,
+            "classname": "SarifHandler",
+            "complexity": 1,
+            "name": "parse_level",
+            "lineno": 55,
+            "closures": []
+        }
+    ]
+}

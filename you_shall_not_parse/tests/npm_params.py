@@ -1,0 +1,58 @@
+from you_shall_not_parse.base_classes import Severity
+from typing import List, Tuple
+
+NPM_AMOUNT = 49
+ALL_AMOUNT: int = NPM_AMOUNT
+ALL_EXAMPLES = ["examples/npm_audit.json"]
+
+NPM_EXPECTED: Tuple[List[Tuple[str, Severity, str, int, str, str]], str] = ([
+    ('npm', Severity.HIGH, 'async', 1088070, 'Prototype Pollution in async', '>=2.0.0 <2.6.4'),
+    ('npm', Severity.HIGH, 'axios', 1085722, 'Denial of Service in axios', '<=0.18.0'),
+    ('npm', Severity.HIGH, 'axios', 1085798, 'axios Inefficient Regular Expression Complexity vulnerability', '<0.21.2'),
+    ('npm', Severity.MEDIUM, 'axios', 1086430, 'Axios vulnerable to Server-Side Request Forgery', '<0.21.1'),
+    ('npm', Severity.MEDIUM, 'bl', 1086490, 'Remote Memory Exposure in bl', '<1.2.3'),
+    ('npm', Severity.LOW, 'braces', 1085715, 'Regular Expression Denial of Service in braces', '<2.3.1'),
+    ('npm', Severity.LOW, 'braces', 1086307, 'Regular Expression Denial of Service (ReDoS) in braces', '<2.3.1'),
+    ('npm', Severity.HIGH, 'cryptiles', 1087746, 'Insufficient Entropy in cryptiles', '<4.1.2'),
+    ('npm', Severity.LOW, 'decode-uri-component', 1087979, 'decode-uri-component vulnerable to Denial of Service (DoS)', '<0.2.1'),
+    ('npm', Severity.HIGH, 'degenerator', 1087993, 'Code Injection in pac-resolver', '<3.0.1'),
+    ('npm', Severity.HIGH, 'engine.io', 1085542, 'Resource exhaustion in engine.io', '<3.6.0'),
+    ('npm', Severity.MEDIUM, 'engine.io', 1085774, 'Uncaught exception in engine.io', '<3.6.1'),
+    ('npm', Severity.MEDIUM, 'follow-redirects', 1088175, 'Exposure of Sensitive Information to an Unauthorized Actor in follow-redirects', '<1.14.8'),
+    ('npm', Severity.HIGH, 'follow-redirects', 1088490, 'Exposure of sensitive information in follow-redirects', '<1.14.7'),
+    ('npm', Severity.HIGH, 'glob-parent', 1088261, 'glob-parent before 5.1.2 vulnerable to Regular Expression Denial of Service in enclosure regex', '<5.1.2'),
+    ('npm', Severity.HIGH, 'hawk', 1088079, 'Uncontrolled Resource Consumption in Hawk', '<9.0.1'),
+    ('npm', Severity.MEDIUM, 'hoek', 1087794, 'Prototype Pollution in hoek', '<4.2.1'),
+    ('npm', Severity.HIGH, 'json-schema', 1085579, 'json-schema is vulnerable to Prototype Pollution', '<0.4.0'),
+    ('npm', Severity.MEDIUM, 'jsonpointer', 1085860, 'Prototype Pollution in node-jsonpointer', '<5.0.0'),
+    ('npm', Severity.MEDIUM, 'karma', 1088162, 'Open redirect in karma', '<6.3.16'),
+    ('npm', Severity.MEDIUM, 'karma', 1088186, 'Cross-site Scripting in karma', '<6.3.14'),
+    ('npm', Severity.MEDIUM, 'log4js', 1085578, 'Incorrect Default Permissions in log4js', '<6.4.0'),
+    ('npm', Severity.HIGH, 'minimatch', 1085778, 'minimatch ReDoS vulnerability', '<3.0.5'),
+    ('npm', Severity.MEDIUM, 'minimist', 1087533, 'Prototype Pollution in minimist', '<0.2.1'),
+    ('npm', Severity.HIGH, 'minimist', 1088106, 'Prototype Pollution in minimist', '<1.2.6'),
+    ('npm', Severity.HIGH, 'netmask', 1086267, 'Improper parsing of octal bytes in netmask', '<1.1.0'),
+    ('npm', Severity.MEDIUM, 'netmask', 1086331, 'netmask npm package vulnerable to octal input data', '<2.0.1'),
+    ('npm', Severity.MEDIUM, 'nodemailer', 1086052, 'Header injection in nodemailer', '<6.6.1'),
+    ('npm', Severity.HIGH, 'nodemailer', 1086247, 'Command injection in nodemailer', '<6.4.16'),
+    ('npm', Severity.HIGH, 'pac-resolver', 1087977, 'Code Injection in pac-resolver', '<5.0.0'),
+    ('npm', Severity.HIGH, 'qs', 1085496, 'qs vulnerable to Prototype Pollution', '<6.2.4'),
+    ('npm', Severity.HIGH, 'qs', 1085499, 'qs vulnerable to Prototype Pollution', '>=6.5.0 <6.5.3'),
+    ('npm', Severity.HIGH, 'qs', 1085501, 'qs vulnerable to Prototype Pollution', '>=6.7.0 <6.7.3'),
+    ('npm', Severity.HIGH, 'redis', 1085376, 'Node-Redis potential exponential regex in monitor mode', '>=2.6.0 <3.1.1'),
+    ('npm', Severity.HIGH, 'requestretry', 1088164, 'Cookie exposure in requestretry', '<7.0.0'),
+    ('npm', Severity.MEDIUM, 'socket.io', 1086414, 'Insecure defaults due to CORS misconfiguration in socket.io', '<2.4.0'),
+    ('npm', Severity.HIGH, 'socket.io-parser', 1086054, 'Resource exhaustion in socket.io-parser', '<3.3.2'),
+    ('npm', Severity.HIGH, 'socket.io-parser', 1087951, 'Insufficient validation when decoding a Socket.IO packet', '<3.3.3'),
+    ('npm', Severity.LOW, 'timespan', 1087122, 'Regular Expression Denial of Service in timespan', '<=2.3.0'),
+    ('npm', Severity.MEDIUM, 'tunnel-agent', 1085744, 'Memory Exposure in tunnel-agent', '<0.6.0'),
+    ('npm', Severity.HIGH, 'underscore', 1084602, 'Arbitrary Code Execution in underscore', '>=1.3.2 <1.12.1'),
+    ('npm', Severity.MEDIUM, 'url-parse', 1086027, 'Open redirect in url-parse', '<1.5.2'),
+    ('npm', Severity.MEDIUM, 'url-parse', 1086344, 'Path traversal in url-parse', '<1.5.0'),
+    ('npm', Severity.MEDIUM, 'url-parse', 1088163, 'Incorrect hostname / protocol due to unstripped leading control characters.', '<1.5.9'),
+    ('npm', Severity.HIGH, 'url-parse', 1088166, 'Authorization Bypass Through User-Controlled Key in url-parse', '<1.5.8'),
+    ('npm', Severity.MEDIUM, 'url-parse', 1088169, "Incorrect returned href via an '@' sign but no user info and hostname", '<1.5.7'),
+    ('npm', Severity.MEDIUM, 'url-parse', 1088173, 'Authorization bypass in url-parse', '<1.5.6'),
+    ('npm', Severity.HIGH, 'xmlhttprequest-ssl', 1086128, 'Improper Certificate Validation in xmlhttprequest-ssl', '<1.6.1'),
+    ('npm', Severity.HIGH, 'xmlhttprequest-ssl', 1086209, 'Arbitrary Code Injection', '<1.6.2')
+], 'examples/npm_audit.json')

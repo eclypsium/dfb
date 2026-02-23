@@ -1,0 +1,433 @@
+{
+    "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
+    "runs": [
+        {
+            "tool": {
+                "driver": {
+                    "name": "Trivy",
+                    "rules": []
+                }
+            },
+            "results": [
+                {
+                    "ruleId": "CVE-2022-3715",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: bash\nInstalled Version: 5.1-6ubuntu1\nVulnerability CVE-2022-3715\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3715](https://avd.aquasec.com/nvd/cve-2022-3715)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2016-2781",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: coreutils\nInstalled Version: 8.32-4.1ubuntu1\nVulnerability CVE-2016-2781\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-2781](https://avd.aquasec.com/nvd/cve-2016-2781)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-43551",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: curl\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43551\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43551](https://avd.aquasec.com/nvd/cve-2022-43551)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-43552",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: curl\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43552\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3219",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: gpgv\nInstalled Version: 2.2.27-3ubuntu2.1\nVulnerability CVE-2022-3219\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3219](https://avd.aquasec.com/nvd/cve-2022-3219)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2016-20013",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libc-bin\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2016-20013",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libc6\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-43551",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: libcurl4\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43551\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43551](https://avd.aquasec.com/nvd/cve-2022-43551)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-43552",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: libcurl4\nInstalled Version: 7.81.0-1ubuntu1.6\nVulnerability CVE-2022-43552\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-43552](https://avd.aquasec.com/nvd/cve-2022-43552)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-29458",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libncurses6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-29458",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libncursesw6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2017-11164",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libpcre3\nInstalled Version: 2:8.39-13ubuntu0.22.04.1\nVulnerability CVE-2017-11164\nSeverity: LOW\nFixed Version: \nLink: [CVE-2017-11164](https://avd.aquasec.com/nvd/cve-2017-11164)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3857",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libpng16-16\nInstalled Version: 1.6.37-3build5\nVulnerability CVE-2022-3857\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3857](https://avd.aquasec.com/nvd/cve-2022-3857)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3996",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libssl3\nInstalled Version: 3.0.2-0ubuntu1.7\nVulnerability CVE-2022-3996\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3821",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: libsystemd0\nInstalled Version: 249.11-0ubuntu3.6\nVulnerability CVE-2022-3821\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-29458",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: libtinfo6\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3821",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: libudev1\nInstalled Version: 249.11-0ubuntu3.6\nVulnerability CVE-2022-3821\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2022-3821](https://avd.aquasec.com/nvd/cve-2022-3821)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2016-20013",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: locales\nInstalled Version: 2.35-0ubuntu3.1\nVulnerability CVE-2016-20013\nSeverity: LOW\nFixed Version: \nLink: [CVE-2016-20013](https://avd.aquasec.com/nvd/cve-2016-20013)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-29458",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: ncurses-base\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-29458",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: ncurses-bin\nInstalled Version: 6.3-2\nVulnerability CVE-2022-29458\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-29458](https://avd.aquasec.com/nvd/cve-2022-29458)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2022-3996",
+                    "level": "note",
+                    "message": {
+                        "text": "Package: openssl\nInstalled Version: 3.0.2-0ubuntu1.7\nVulnerability CVE-2022-3996\nSeverity: LOW\nFixed Version: \nLink: [CVE-2022-3996](https://avd.aquasec.com/nvd/cve-2022-3996)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "CVE-2021-31879",
+                    "level": "warning",
+                    "message": {
+                        "text": "Package: wget\nInstalled Version: 1.21.2-2ubuntu1\nVulnerability CVE-2021-31879\nSeverity: MEDIUM\nFixed Version: \nLink: [CVE-2021-31879](https://avd.aquasec.com/nvd/cve-2021-31879)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "library/7a1af8b86aa5"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

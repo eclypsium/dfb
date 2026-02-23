@@ -1,0 +1,54 @@
+[
+    {
+        "type": "convention",
+        "module": "abram.abram_base_types",
+        "obj": "",
+        "line": 1,
+        "column": 0,
+        "endLine": null,
+        "endColumn": null,
+        "path": "abram/abram_base_types.py",
+        "symbol": "missing-module-docstring",
+        "message": "Missing module docstring",
+        "message-id": "C0114"
+    },
+    {
+        "type": "convention",
+        "module": "abram.abram_collection",
+        "obj": "",
+        "line": 1,
+        "column": 0,
+        "endLine": null,
+        "endColumn": null,
+        "path": "abram/abram_collection.py",
+        "symbol": "missing-module-docstring",
+        "message": "Missing module docstring",
+        "message-id": "C0114"
+    },
+    {
+        "type": "convention",
+        "module": "abram.abram_collection",
+        "obj": "Collection.intersection",
+        "line": 24,
+        "column": 4,
+        "endLine": 24,
+        "endColumn": 20,
+        "path": "abram/abram_collection.py",
+        "symbol": "missing-function-docstring",
+        "message": "Missing function or method docstring",
+        "message-id": "C0116"
+    },
+    {
+        "type": "warning",
+        "module": "abram.abram_collection",
+        "obj": "Collection.intersection",
+        "line": 26,
+        "column": 19,
+        "endLine": 26,
+        "endColumn": 44,
+        "path": "abram/abram_collection.py",
+        "symbol": "protected-access",
+        "message": "Access to a protected member _iterate_collection of a client class",
+        "message-id": "W0212"
+    }
+]

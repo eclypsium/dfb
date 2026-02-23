@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "vulnerabilities": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "installedVersion": {
+                            "type": "string"
+                        },
+                        "vulns": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "installedVersion",
+                        "vulns"
+                    ]
+                }
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "auditVersion": {
+                    "type": "string"
+                },
+                "poetry.lock": {
+                    "type": "object",
+                    "properties": {
+                        "updated": {
+                            "type": "boolean"
+                        },
+                        "fresh": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "vulnerabilities",
+        "metadata"
+    ]
+}

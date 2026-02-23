@@ -1,0 +1,35 @@
+{
+    "Issues":[
+        {
+            "FromLinter": "typecheck",
+            "Text": "",
+            "Severity": "",
+            "SourceLines": [],
+            "Replacement": null,
+            "Pos": {
+                "Filename": "golangci.json",
+                "Offset": 0,
+                "Line": 0,
+                "Column": 0
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        },
+        {
+            "FromLinter": "typecheck",
+            "Text": "",
+            "Severity": "",
+            "SourceLines": [],
+            "Replacement": null,
+            "Pos": {
+                "Filename": "golangci.json",
+                "Offset": 0,
+                "Line": 0,
+                "Column": 0
+            },
+            "ExpectNoLint": false,
+            "ExpectedNoLintLinter": ""
+        }
+   ],
+    "Report":{}
+}

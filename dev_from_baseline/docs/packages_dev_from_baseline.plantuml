@@ -1,0 +1,17 @@
+@startuml packages_dev_from_baseline
+set namespaceSeparator none
+package "dev_from_baseline" as dev_from_baseline {
+}
+package "dev_from_baseline.dev_from_baseline" as dev_from_baseline.dev_from_baseline {
+}
+package "dev_from_baseline.dev_from_baseline.baseline" as dev_from_baseline.dev_from_baseline.baseline {
+}
+package "dev_from_baseline.dev_from_baseline.counter" as dev_from_baseline.dev_from_baseline.counter {
+}
+package "dev_from_baseline.dev_from_baseline.main" as dev_from_baseline.dev_from_baseline.main {
+}
+dev_from_baseline.dev_from_baseline.baseline --> dev_from_baseline.dev_from_baseline
+dev_from_baseline.dev_from_baseline.main --> dev_from_baseline.dev_from_baseline
+dev_from_baseline.dev_from_baseline.counter --> dev_from_baseline.dev_from_baseline
+dev_from_baseline.dev_from_baseline --> dev_from_baseline
+@enduml

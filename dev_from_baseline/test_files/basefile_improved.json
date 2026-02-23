@@ -1,0 +1,70 @@
+{
+  "npm": {
+    "files": {
+      "async": {
+        "high": 1,
+        "low": 0,
+        "medium": 0,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "axios": {
+        "high": 2,
+        "low": 0,
+        "medium": 1,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "bl": {
+        "high": 0,
+        "low": 0,
+        "medium": 1,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "braces": {
+        "high": 0,
+        "low": 2,
+        "medium": 0,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "cryptiles": {
+        "high": 1,
+        "low": 0,
+        "medium": 0,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "decode-uri-component": {
+        "high": 0,
+        "low": 1,
+        "medium": 0,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      },
+      "degenerator": {
+        "high": 1,
+        "low": 0,
+        "medium": 0,
+        "note": 0,
+        "undefined": 0,
+        "warning": 0
+      }
+    },
+    "total": {
+      "high": 5,
+      "low": 3,
+      "medium": 2,
+      "note": 0,
+      "undefined": 0,
+      "warning": 0
+    }
+  }
+}

@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "dev_from_baseline"
+version = "0.4.0"
+description = ""
+authors = [
+    "franco0700 <franco.lombroni@eclypsium.com>",
+    "Gaston Strizzolo <gaston.strizzolo@eclypsium.com>",
+    "Lucía Martinez Gavier <lucia.martinez@eclypsium.com>"
+]
+
+[tool.poetry.dependencies]
+python = "^3.10.6"
+typer = "^0.6.1"
+rich = "^12.5.1"
+overrides = "7.3.1"
+coverage = "^6.4.4"
+you-shall-not-parse = {path = "../you_shall_not_parse", develop = true}
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+
+[tool.bandit]
+exclude_dirs = ["test.py", "tests_files"]
+skips = ["B101", "B102", "B301", "B608"]
+
+[tool.poetry.scripts]
+dev-from-baseline="dev_from_baseline.main:main_cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,47 @@
+@startuml packages_parser
+set namespaceSeparator none
+package "you_shall_not_parse.parsers" as you_shall_not_parse.parsers {
+}
+package "you_shall_not_parse" as you_shall_not_parse {
+}
+package "you_shall_not_parse.base_classes" as you_shall_not_parse.base_classes {
+}
+package "you_shall_not_parse.handler_classes" as you_shall_not_parse.handler_classes {
+}
+package "you_shall_not_parse.observers" as you_shall_not_parse.observers {
+}
+package "you_shall_not_parse.parser" as you_shall_not_parse.parser {
+}
+package "you_shall_not_parse.sarif" as you_shall_not_parse.sarif {
+}
+package "you_shall_not_parse.radon" as you_shall_not_parse.radon {
+}
+package "you_shall_not_parse.pip_audit" as you_shall_not_parse.pip_audit {
+}
+package "you_shall_not_parse.npm" as you_shall_not_parse.npm {
+}
+package "you_shall_not_parse.golangci" as you_shall_not_parse.golangci {
+}
+package "you_shall_not_parse.observers.database_observer" as you_shall_not_parse.observers.database_observer {
+}
+package "you_shall_not_parse.observers.sarif_observer" as you_shall_not_parse.observers.sarif_observer {
+}
+package "you_shall_not_parse.observers.console_observer" as you_shall_not_parse.observers.console_observer {
+}
+package "you_shall_not_parse.observer" as you_shall_not_parse.observer {
+}
+you_shall_not_parse.observer --> you_shall_not_parse
+you_shall_not_parse.handler_classes --> you_shall_not_parse
+you_shall_not_parse.observers --> you_shall_not_parse
+you_shall_not_parse.parser --> you_shall_not_parse
+you_shall_not_parse.parsers --> you_shall_not_parse
+you_shall_not_parse.golangci --> you_shall_not_parse.parsers
+you_shall_not_parse.sarif --> you_shall_not_parse.parsers
+you_shall_not_parse.pip_audit --> you_shall_not_parse.parsers
+you_shall_not_parse.npm --> you_shall_not_parse.parsers
+you_shall_not_parse.radon --> you_shall_not_parse.parsers
+you_shall_not_parse.base_classes --> you_shall_not_parse
+you_shall_not_parse.observers.console_observer --> you_shall_not_parse.observers
+you_shall_not_parse.observers.sarif_observer --> you_shall_not_parse.observers
+you_shall_not_parse.observers.database_observer --> you_shall_not_parse.observers
+@enduml

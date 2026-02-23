@@ -1,0 +1,544 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Bandit",
+          "rules": [
+            {
+              "id": "B105",
+              "name": "hardcoded_password_string",
+              "helpUri": "https://bandit.readthedocs.io/en/1.7.4/plugins/b105_hardcoded_password_string.html"
+            },
+            {
+              "id": "B107",
+              "name": "hardcoded_password_default",
+              "helpUri": "https://bandit.readthedocs.io/en/1.7.4/plugins/b107_hardcoded_password_default.html"
+            },
+            {
+              "id": "B106",
+              "name": "hardcoded_password_funcarg",
+              "helpUri": "https://bandit.readthedocs.io/en/1.7.4/plugins/b106_hardcoded_password_funcarg.html"
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2023-01-03T15:25:45Z"
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "_totals": {
+            "loc": 28,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "SEVERITY.LOW": 14,
+            "CONFIDENCE.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "CONFIDENCE.MEDIUM": 14,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "aa.py": {
+            "loc": 28,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 14,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 14,
+            "CONFIDENCE.HIGH": 0
+          }
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'class_password'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    password = \"class_password\"\n"
+                  },
+                  "startLine": 4
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "class SomeClass:\n    password = \"class_password\"\n\n"
+                  },
+                  "endLine": 5,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'Admin'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def someFunction(user, password=\"Admin\"):\n"
+                  },
+                  "startLine": 8
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\ndef someFunction(user, password=\"Admin\"):\n    print(\"Hi \" + user)\n\ndef someFunction2(password):\n"
+                  },
+                  "endLine": 11,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B107",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'root'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    if password == \"root\":\n"
+                  },
+                  "startLine": 14
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    # Severity: Low   Confidence: Medium\n    if password == \"root\":\n        print(\"OK, logged in\")\n"
+                  },
+                  "endLine": 15,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: ''"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    if password == '':\n"
+                  },
+                  "startLine": 20
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    # Severity: Low   Confidence: Medium\n    if password == '':\n        print(\"No password!\")\n"
+                  },
+                  "endLine": 21,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'ajklawejrkl42348swfgkg'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    if password == \"ajklawejrkl42348swfgkg\":\n"
+                  },
+                  "startLine": 26
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    # Severity: Low   Confidence: Medium\n    if password == \"ajklawejrkl42348swfgkg\":\n        print(\"Nice password!\")\n"
+                  },
+                  "endLine": 27,
+                  "startLine": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'this cool password'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    if obj.password == \"this cool password\":\n"
+                  },
+                  "startLine": 33
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    # Severity: Low   Confidence: Medium\n    if obj.password == \"this cool password\":\n        print(obj.password)\n"
+                  },
+                  "endLine": 34,
+                  "startLine": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'blerg'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def doLogin(password=\"blerg\"):\n"
+                  },
+                  "startLine": 38
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\ndef doLogin(password=\"blerg\"):\n    pass\n\ndef NoMatch3(a, b):\n"
+                  },
+                  "endLine": 41,
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B107",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'blerg'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "doLogin(password=\"blerg\")\n"
+                  },
+                  "startLine": 46
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\ndoLogin(password=\"blerg\")\n\n"
+                  },
+                  "endLine": 47,
+                  "startLine": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B106",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'blerg'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "password = \"blerg\"\n"
+                  },
+                  "startLine": 50
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\npassword = \"blerg\"\n\n# Possible hardcoded password: 'blerg'\n# Severity: Low   Confidence: Medium\nd[\"password\"] = \"blerg\"\n"
+                  },
+                  "endLine": 54,
+                  "startLine": 49
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'blerg'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "d[\"password\"] = \"blerg\"\n"
+                  },
+                  "startLine": 54
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\nd[\"password\"] = \"blerg\"\n\n"
+                  },
+                  "endLine": 55,
+                  "startLine": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'secret'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "EMAIL_PASSWORD = \"secret\"\n"
+                  },
+                  "startLine": 58
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\nEMAIL_PASSWORD = \"secret\"\n\n# Possible hardcoded password: 'emails_secret'\n# Severity: Low   Confidence: Medium\nemail_pwd = 'emails_secret'\n"
+                  },
+                  "endLine": 62,
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'emails_secret'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "email_pwd = 'emails_secret'\n"
+                  },
+                  "startLine": 62
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\nemail_pwd = 'emails_secret'\n\n# Possible hardcoded password: 'd6s$f9g!j8mg7hw?n&2'\n# Severity: Low   Confidence: Medium\nmy_secret_password_for_email = 'd6s$f9g!j8mg7hw?n&2'\n"
+                  },
+                  "endLine": 66,
+                  "startLine": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: 'd6s$f9g!j8mg7hw?n&2'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "my_secret_password_for_email = 'd6s$f9g!j8mg7hw?n&2'\n"
+                  },
+                  "startLine": 66
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\nmy_secret_password_for_email = 'd6s$f9g!j8mg7hw?n&2'\n\n# Possible hardcoded password: '1234'\n# Severity: Low   Confidence: Medium\npassphrase='1234'\n"
+                  },
+                  "endLine": 70,
+                  "startLine": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Possible hardcoded password: '1234'"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "passphrase='1234'\n"
+                  },
+                  "startLine": 70
+                },
+                "artifactLocation": {
+                  "uri": "aa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "# Severity: Low   Confidence: Medium\npassphrase='1234'\n"
+                  },
+                  "endLine": 70,
+                  "startLine": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B105",
+          "ruleIndex": 0
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json"
+}
