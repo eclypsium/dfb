@@ -64,11 +64,14 @@ class ComparisonResult():
         if self.status_code != ResultCode.WORSE:
             self.status_code = ResultCode.IMPROVED
 
-    def add_issue(self, linter_name: str, comparison: CounterComparison, file_name: str, detailed_info: Optional[DetailedInfo] = None) -> None:
+    def add_issue(self, linter_name: str, comparison: CounterComparison,
+                  file_name: str,
+                  detailed_info: Optional[DetailedInfo] = None) -> None:
         if linter_name not in self.linters:
             self.linters[linter_name] = []
         if detailed_info:
-            comparison.details = detailed_info
+            comparison = CounterComparison(
+                old=comparison.old, new=comparison.new, details=detailed_info)
         self.linters[linter_name].append(FileComparison(file_name, comparison))
         self.status_code = ResultCode.WORSE
 
@@ -102,4 +105,3 @@ class ComparisonResult():
             for file_comparison in file_comparisons:
                 process_comparison(file_comparison, linter_name, worsened_issues)
         return worsened_issues
-    

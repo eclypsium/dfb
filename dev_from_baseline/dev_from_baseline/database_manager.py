@@ -76,7 +76,7 @@ class DatabaseManager():
             }
             for issue in issues_details
         ]
-        return details 
+        return details
 
     def get_issues_counter_per_linter(self, linter_name: str) -> Counter:
         """

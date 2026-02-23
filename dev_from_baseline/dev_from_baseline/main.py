@@ -29,7 +29,7 @@ def generate_baseline(basefile: str, reports: list[str]) -> None:
 
 
 def compare(basefile: str,
-            report_files: list[str]) -> ComparisonResult:
+            report_files: list[str]) -> tuple[ComparisonResult, dict]:
     """
     It will compare the results already stored in --basefile with the new
     report --report_file
@@ -43,16 +43,16 @@ def compare(basefile: str,
     if old_baseline.json is None:
         logger.error("Baseline json failed to load")
         sys.exit(ERROR_CODE)
-    else:
-        comparison_result: ComparisonResult = old_baseline.compare_against_db(db_manager)
-        printer = ResultTable(console)
-        comparison_result.show_results(printer)
-        worsened_severities = extract_worsened_severities(comparison_result)
+
+    comparison_result: ComparisonResult = old_baseline.compare_against_db(db_manager)
+    printer = ResultTable(console)
+    comparison_result.show_results(printer)
+    worsened_severities: dict[str, dict] = extract_worsened_severities(comparison_result)
 
     return comparison_result, worsened_severities
 
 def extract_worsened_severities(result: ComparisonResult) -> dict:
-    worsened_severities = {}
+    worsened_severities: dict[str, dict[str, set[str]]] = {}
     for linter_name, file_comparisons in result.linters.items():
         for file_comparison in file_comparisons:
             if file_comparison.file_name != "Total":
@@ -70,7 +70,7 @@ def extract_severity_changes(file_comparison, linter_name, worsened_severities):
 
 def display_worsened_issues(result: ComparisonResult, worsened_severities: dict) -> None:
     worsened_issues = result.get_worsened_issues()
-    issues_data = []
+    issues_data: list[dict[str, str]] = []
 
     for file_name, linters in worsened_issues.items():
         process_linters(file_name, linters, worsened_severities, issues_data)
@@ -78,8 +78,8 @@ def display_worsened_issues(result: ComparisonResult, worsened_severities: dict)
     result_table_issues = ResultTableIssues(console)
     result_table_issues.generate_table(issues_data)
 
-def process_linters(file_name, linters, worsened_severities, issues_data):
-    for linter_name, issues in linters.items():
+def process_linters(_file_name, linters, worsened_severities, issues_data):
+    for _linter_name, issues in linters.items():
         for issue in issues:
             process_issue_details(issue, worsened_severities, issues_data)
 
@@ -100,15 +100,19 @@ def process_issue_details(issue, worsened_severities, issues_data):
                 'location': detail.get('location', 'N/A')
             })
 
-def handle_comparison_result(result: ComparisonResult, basefile: str, report_file: list[str], worsened_severities: dict, details: bool = False) -> None:
+def handle_comparison_result(
+        result: ComparisonResult, basefile: str, report_file: list[str],
+        worsened_severities: dict, details: bool = False) -> None:
     status_code = result.status_code
 
     if status_code == ResultCode.SAME:
         logger.info("No change detected: The code quality is consistent with the baseline. No updates needed")
 
     elif status_code == ResultCode.WORSE:
-        logger.info("Code quality has declined: More issues were found than in the baseline."
-                    "Please address the issues. If that's not possible, you can update the baseline with the newly generated one.")
+        logger.info(
+            "Code quality has declined: More issues were found than in the baseline."
+            "Please address the issues. If that's not possible, "
+            "you can update the baseline with the newly generated one.")
         if details:
             display_worsened_issues(result, worsened_severities)
         else:
