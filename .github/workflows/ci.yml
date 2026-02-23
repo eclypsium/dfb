@@ -1,0 +1,184 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  # ── dev_from_baseline ──────────────────────────────────────────────
+
+  dfb-bandit:
+    name: "dfb: bandit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "bandit[toml]"
+      - run: bandit --recursive --configfile pyproject.toml .
+        working-directory: dev_from_baseline
+
+  dfb-pylint:
+    name: "dfb: pylint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+          pip install pylint
+        working-directory: dev_from_baseline
+      - run: pylint --rcfile .pylintrc dev_from_baseline
+        working-directory: dev_from_baseline
+
+  dfb-mypy:
+    name: "dfb: mypy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+          pip install mypy
+        working-directory: dev_from_baseline
+      - run: mypy --junit-xml mypy.xml --exclude tests .
+        working-directory: dev_from_baseline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dfb-mypy-report
+          path: dev_from_baseline/mypy.xml
+
+  dfb-lizard:
+    name: "dfb: lizard"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install lizard
+      - run: |
+          lizard . --verbose --exclude dev_from_baseline/tests/*
+          lizard -Eduplicate
+        working-directory: dev_from_baseline
+
+  dfb-tests:
+    name: "dfb: tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+        working-directory: dev_from_baseline
+      - run: pytest -vv
+        working-directory: dev_from_baseline
+
+  dfb-coverage:
+    name: "dfb: coverage"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+        working-directory: dev_from_baseline
+      - run: |
+          coverage run -m pytest
+          coverage report
+          coverage xml
+        working-directory: dev_from_baseline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dfb-coverage-report
+          path: dev_from_baseline/coverage.xml
+
+  # ── you_shall_not_parse ────────────────────────────────────────────
+
+  ysnp-bandit:
+    name: "ysnp: bandit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "bandit[toml]"
+      - run: bandit --recursive --configfile pyproject.toml .
+        working-directory: you_shall_not_parse
+
+  ysnp-pylint:
+    name: "ysnp: pylint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+          pip install pylint
+        working-directory: you_shall_not_parse
+      - run: pylint --rcfile .pylintrc you_shall_not_parse
+        working-directory: you_shall_not_parse
+
+  ysnp-mypy:
+    name: "ysnp: mypy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+          pip install mypy lxml-stubs
+        working-directory: you_shall_not_parse
+      - run: mypy --junit-xml mypy.xml --strict --warn-return-any --warn-unreachable --exclude test .
+        working-directory: you_shall_not_parse
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ysnp-mypy-report
+          path: you_shall_not_parse/mypy.xml
+
+  ysnp-tests:
+    name: "ysnp: tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install poetry==1.8.5
+          poetry config virtualenvs.create false
+          poetry install
+          pip install pytest
+        working-directory: you_shall_not_parse
+      - run: pytest -vv
+        working-directory: you_shall_not_parse
