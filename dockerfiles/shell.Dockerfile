@@ -1,7 +1,7 @@
 FROM ghcr.io/eclypsium/dfb/base:latest
 
 RUN apt-get update && \
-    apt-get install -y curl xz-utils && \
+    apt-get install -y curl xz-utils build-essential && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
