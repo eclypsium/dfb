@@ -77,20 +77,20 @@ class BanditLinter(RecursiveLinter):
         return output_file
 
     @staticmethod
-    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> str:
+    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> List[str]:
         main_folder = Path.cwd()
-        exclude_option = f"--exclude {args.exclude}" if args.exclude else ""
-        recurse_option = "--recursive" if args.recursive else ""
+        exclude_option = ["--exclude", args.exclude] if args.exclude else []
+        recurse_option = ["--recursive"] if args.recursive else []
         logging.info(f"Exclude option: {exclude_option}")
-        return (
-            f"bandit {recurse_option} {exclude_option} --format sarif --output {main_folder}/{output_file} "
-            f" {folder}"
-        )
+        return [
+            "bandit", *recurse_option, *exclude_option, "--format", "sarif",
+            "--output", f"{main_folder}/{output_file}", "--", folder,
+        ]
 
     @staticmethod
-    def _execute_command(command: str):
+    def _execute_command(command: List[str]):
         logging.info(f"Running command: {command}")
-        process = subprocess.run(command, shell=True, capture_output=True, check=False)
+        process = subprocess.run(command, capture_output=True, check=False)
         if process.returncode == 0:
             logging.info("The command was successful.")
         else:
@@ -118,15 +118,14 @@ class ShellCheckLinter(SingleDirLinter):
         logging.info("Running shellcheck...")
         output_file = get_output_file_name("shellcheck", folder)
         json_file = f"{output_file}.json"
+        files = sorted(str(f) for f in Path(folder).glob("*.sh"))
         result = subprocess.run(
-            f"shellcheck -f json {folder}/*.sh",
-            shell=True, capture_output=True, check=False,
+            ["shellcheck", "-f", "json", "--", *files],
+            capture_output=True, check=False,
         )
         Path(json_file).write_text(result.stdout.decode())
-        subprocess.run(
-            f"shellcheck-sarif < {json_file} > {output_file}",
-            shell=True, check=False,
-        )
+        with open(json_file, "rb") as stdin, open(output_file, "wb") as stdout:
+            subprocess.run(["shellcheck-sarif"], stdin=stdin, stdout=stdout, check=False)
         Path(json_file).unlink(missing_ok=True)
 
 
@@ -144,20 +143,19 @@ class PylintLinter(RecursiveLinter):
 
 
     @staticmethod
-    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> str:
-        exclude_option = f"--ignore={args.exclude}" if args.exclude else ""
-        recursive_option = "--recursive y" if args.recursive else ""
-        command = (
-            f"pylint {recursive_option} {folder}/*.py "
-            f"--output={output_file} -f json {exclude_option}"
-        )
-        return command
+    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> List[str]:
+        exclude_option = [f"--ignore={args.exclude}"] if args.exclude else []
+        recursive_option = ["--recursive", "y"] if args.recursive else []
+        files = sorted(str(f) for f in Path(folder).glob("*.py"))
+        return [
+            "pylint", *recursive_option, f"--output={output_file}", "-f", "json",
+            *exclude_option, "--", *files,
+        ]
 
     @staticmethod
-    def _execute_command(command: str):
+    def _execute_command(command: List[str]):
         result = subprocess.run(
             command,
-            shell=True,
             capture_output=True,
             check=False,
         )
@@ -173,13 +171,14 @@ class MypyLinter(RecursiveLinter):
         if args.install:
             self.install_linter()
         output_file = get_output_file_name("mypy", folder) + ".xml"
-        exclude_option = f"--exclude {args.exclude}" if args.exclude else ""
-        command = (
-            f"mypy --warn-return-any --warn-unreachable "
-            f"--ignore-missing-imports {exclude_option} --junit-xml {output_file} {folder}"
-        )
+        exclude_option = ["--exclude", args.exclude] if args.exclude else []
+        command = [
+            "mypy", "--warn-return-any", "--warn-unreachable",
+            "--ignore-missing-imports", *exclude_option,
+            "--junit-xml", output_file, "--", folder,
+        ]
         logging.info(f"Running command: {command}")
-        subprocess.run(command, shell=True, check=False)
+        subprocess.run(command, check=False)
 
 
 class NjsscanLinter(RecursiveLinter):
@@ -192,8 +191,8 @@ class NjsscanLinter(RecursiveLinter):
         logging.info("Running njsscan...")
         output_file = get_output_file_name("njsscan", folder) + ".sarif"
         result = subprocess.run(
-            f"njsscan --exit-warning --sarif -o {output_file} {folder}",
-            shell=True, capture_output=True, check=False,
+            ["njsscan", "--exit-warning", "--sarif", "-o", output_file, "--", folder],
+            capture_output=True, check=False,
         )
         if result.returncode > 1:
             logging.warning(f"njsscan failed with return code: {result.returncode}")
@@ -209,23 +208,25 @@ class EslintLinter(RecursiveLinter):
         logging.info("Running eslint...")
         subprocess.run(["npm", "ci"], check=False)
         output_file = get_output_file_name("eslint", folder) + ".sarif"
-        exclude_option = f"--ignore-pattern {args.exclude}" if args.exclude else ""
-        subprocess.run(
-            f"eslint {exclude_option} --format json {folder} > {output_file}",
-            shell=True,
-            check=False,
-        )
+        exclude_option = ["--ignore-pattern", args.exclude] if args.exclude else []
+        with open(output_file, "wb") as stdout:
+            subprocess.run(
+                ["eslint", *exclude_option, "--format", "json", "--", folder],
+                stdout=stdout,
+                check=False,
+            )
 
 
 class NpmAuditLinter(RecursiveLinter):
     def run_linter(self, folder: str, args: LinterArgs) -> None:
         logging.info("Running npm audit...")
         output_file = get_output_file_name("npm-audit", folder) + ".json"
-        subprocess.run(
-            f"npm audit --audit-level=moderate --json > {output_file}",
-            shell=True,
-            check=False,
-        )
+        with open(output_file, "wb") as stdout:
+            subprocess.run(
+                ["npm", "audit", "--audit-level=moderate", "--json"],
+                stdout=stdout,
+                check=False,
+            )
 
 
 class HadolintLinter(SingleDirLinter):
@@ -245,8 +246,8 @@ class HadolintLinter(SingleDirLinter):
         logging.info("Running hadolint...")
         output_file = get_output_file_name("hadolint", folder) + ".sarif"
         result = subprocess.run(
-            f"hadolint -f sarif {folder}/Dockerfile",
-            shell=True, capture_output=True, check=False,
+            ["hadolint", "-f", "sarif", "--", f"{folder}/Dockerfile"],
+            capture_output=True, check=False,
         )
         Path(output_file).write_text(result.stdout.decode())
 
@@ -267,8 +268,8 @@ class GolintersLinter(RecursiveLinter):
         logging.info("Running golangci-lint...")
         output_file = get_output_file_name("golangci", folder) + ".json"
         result = subprocess.run(
-            f"golangci-lint run -v --out-format json {folder}/...",
-            shell=True, capture_output=True, check=False,
+            ["golangci-lint", "run", "-v", "--out-format", "json", "--", f"{folder}/..."],
+            capture_output=True, check=False,
         )
         Path(output_file).write_text(result.stdout.decode())
 
@@ -277,12 +278,12 @@ class LizardLinter(RecursiveLinter):
     def run_linter(self, folder: str, args: LinterArgs) -> None:
         logging.info("Running Lizardlint...")
         output_file = get_output_file_name("lizardlint", folder) + ".csv"
-        command = f'lizard --csv "{folder}" > "{output_file}"'
-        subprocess.run(
-            command,
-            shell=True,
-            check=False,
-        )
+        with open(output_file, "wb") as stdout:
+            subprocess.run(
+                ["lizard", "--csv", "--", folder],
+                stdout=stdout,
+                check=False,
+            )
 
     def install_linter(self) -> None:
         logging.info("Installing Lizardlint...")
