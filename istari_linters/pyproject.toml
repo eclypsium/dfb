@@ -7,6 +7,9 @@ readme = "README.md"
 packages = [{include = "istari_linters"}]
 
 [tool.bandit]
+# istari runs tools on purpose, always as argv lists: skip only those checks.
+# B602 (shell=True) and the rest still fail the build.
+skips = ["B404", "B603", "B607"]
 
 [tool.poetry.dependencies]
 python = "^3.10"

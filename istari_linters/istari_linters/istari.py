@@ -1,7 +1,13 @@
 import argparse
+import glob
+import hashlib
 import os
+import shlex
+import shutil
 import sys
 import subprocess
+import tarfile
+import tempfile
 import logging
 from pathlib import Path
 from abc import ABC, abstractmethod
@@ -9,7 +15,7 @@ from typing import List, Optional, cast, Final
 from dataclasses import dataclass, field
 
 sys.path.insert(0, str(Path(__file__).parent))
-from linter_versions import LINTER_VERSIONS
+from linter_versions import LINTER_CHECKSUMS, LINTER_VERSIONS
 
 # pylint: disable=too-few-public-methods
 
@@ -17,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 
 @dataclass
 class LinterArgs:
-    exclude: Optional[str] = field(default=None)
+    exclude: List[str] = field(default_factory=list)
     recursive: bool = field(default=False)
     install: bool = field(default=False)
 
@@ -38,7 +44,9 @@ class SingleDirLinter(LinterInterface):
         if args.recursive:
             for root, dirs, _ in os.walk(folder):
                 for directory in dirs:
-                    self._lint_single_folder(os.path.join(root, directory), args)
+                    path = os.path.join(root, directory)
+                    if not os.path.islink(path):
+                        self._lint_single_folder(path, args)
 
     @abstractmethod
     def _lint_single_folder(self, folder: str, args: LinterArgs) -> None:
@@ -49,6 +57,63 @@ RESULTS_FOLDER: Final = "linters_results"
 
 def get_output_file_name(tool: str, project_folder: str) -> str:
     return f"{RESULTS_FOLDER}/{tool}-{project_folder.replace('/', '-')}.sarif"  # type: ignore
+
+
+def run_tool(argv: List[str], stdout_path: Optional[str] = None,
+             stdin_data: Optional[bytes] = None) -> Optional[subprocess.CompletedProcess]:
+    """Run a linter without a shell. stdout goes to stdout_path when given, else it's captured."""
+    logging.info("Running: %s", shlex.join(argv))
+    try:
+        if stdout_path is None:
+            return subprocess.run(argv, input=stdin_data, capture_output=True, check=False)
+        with open(stdout_path, "wb") as out:
+            return subprocess.run(argv, input=stdin_data, stdout=out, stderr=subprocess.PIPE,
+                                  check=False)
+    except FileNotFoundError:
+        logging.error("%s is not installed", argv[0])
+        return None
+
+
+def files_in(folder: str, pattern: str) -> List[str]:
+    """What sh passes for folder/pattern: the sorted matches, or the pattern itself if none match."""
+    matches = sorted(glob.glob(os.path.join(glob.escape(folder), pattern)))
+    return matches or [os.path.join(folder, pattern)]
+
+
+def install_release(url: str, sha256: str, dest: str, member: Optional[str] = None) -> bool:
+    """Download a release asset, check its SHA-256 and place it at dest.
+
+    When member is given, the asset is a tar archive and only that file is extracted.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        asset = os.path.join(tmp, "asset")
+        result = run_tool(["curl", "-fsSL", "-o", asset, url])
+        if result is None or result.returncode != 0:
+            logging.error("Could not download %s", url)
+            return False
+        digest = hashlib.sha256()
+        with open(asset, "rb") as downloaded:
+            for chunk in iter(lambda: downloaded.read(1 << 20), b""):
+                digest.update(chunk)
+        if digest.hexdigest() != sha256:
+            logging.error("Checksum mismatch for %s: got %s", url, digest.hexdigest())
+            return False
+        payload = asset
+        if member is not None:
+            payload = os.path.join(tmp, "payload")
+            try:
+                with tarfile.open(asset) as archive, open(payload, "wb") as staged:
+                    extracted = archive.extractfile(member)
+                    if extracted is None:
+                        raise KeyError(member)
+                    shutil.copyfileobj(extracted, staged)
+            except (KeyError, tarfile.TarError):
+                logging.error("Could not extract %s from %s", member, url)
+                return False
+        shutil.copyfile(payload, dest)
+        os.chmod(dest, 0o755)  # nosec B103 - installed tools must be executable by every user
+    return True
+
 
 def pip_install(package: str, version: str) -> None:
     logging.info(f"Installing {package} version {version}")
@@ -77,20 +142,21 @@ class BanditLinter(RecursiveLinter):
         return output_file
 
     @staticmethod
-    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> str:
+    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> List[str]:
         main_folder = Path.cwd()
-        exclude_option = f"--exclude {args.exclude}" if args.exclude else ""
-        recurse_option = "--recursive" if args.recursive else ""
+        exclude_option = ["--exclude", ",".join(args.exclude)] if args.exclude else []
+        recurse_option = ["--recursive"] if args.recursive else []
         logging.info(f"Exclude option: {exclude_option}")
-        return (
-            f"bandit {recurse_option} {exclude_option} --format sarif --output {main_folder}/{output_file} "
-            f" {folder}"
-        )
+        return [
+            "bandit", *recurse_option, *exclude_option, "--format", "sarif",
+            "--output", f"{main_folder}/{output_file}", folder,
+        ]
 
     @staticmethod
-    def _execute_command(command: str):
-        logging.info(f"Running command: {command}")
-        process = subprocess.run(command, shell=True, capture_output=True, check=False)
+    def _execute_command(command: List[str]):
+        process = run_tool(command)
+        if process is None:
+            return
         if process.returncode == 0:
             logging.info("The command was successful.")
         else:
@@ -99,35 +165,32 @@ class BanditLinter(RecursiveLinter):
 
 class ShellCheckLinter(SingleDirLinter):
     def install_linter(self) -> None:
-        subprocess.run(
-            "curl -L https://github.com/koalaman/shellcheck/releases/download/v0.8.0/"
-            "shellcheck-v0.8.0.linux.x86_64.tar.xz | tar xJf - && "
-            "mv shellcheck-v0.8.0/shellcheck /usr/local/bin/ && "
-            "rm -rf shellcheck-v0.8.0",
-            shell=True, check=False,
+        version = LINTER_VERSIONS['shellcheck']
+        install_release(
+            f"https://github.com/koalaman/shellcheck/releases/download/v{version}/"
+            f"shellcheck-v{version}.linux.x86_64.tar.xz",
+            LINTER_CHECKSUMS['shellcheck'], "/usr/local/bin/shellcheck",
+            member=f"shellcheck-v{version}/shellcheck",
         )
-        subprocess.run(
-            'curl https://sh.rustup.rs -sSf | sh -s -- -y && '
-            '. "$HOME/.cargo/env" && cargo install shellcheck-sarif',
-            shell=True, check=False,
-        )
+        with tempfile.TemporaryDirectory() as tmp:
+            rustup_init = os.path.join(tmp, "rustup-init")
+            rustup_version = LINTER_VERSIONS['rustup']
+            if install_release(
+                f"https://static.rust-lang.org/rustup/archive/{rustup_version}/"
+                f"x86_64-unknown-linux-gnu/rustup-init",
+                LINTER_CHECKSUMS['rustup-init'], rustup_init,
+            ):
+                run_tool([rustup_init, "-y"])
+                run_tool([str(Path.home() / ".cargo" / "bin" / "cargo"), "install", "shellcheck-sarif"])
 
     def _lint_single_folder(self, folder: str, args: LinterArgs) -> None:
         if args.install:
             self.install_linter()
         logging.info("Running shellcheck...")
         output_file = get_output_file_name("shellcheck", folder)
-        json_file = f"{output_file}.json"
-        result = subprocess.run(
-            f"shellcheck -f json {folder}/*.sh",
-            shell=True, capture_output=True, check=False,
-        )
-        Path(json_file).write_text(result.stdout.decode())
-        subprocess.run(
-            f"shellcheck-sarif < {json_file} > {output_file}",
-            shell=True, check=False,
-        )
-        Path(json_file).unlink(missing_ok=True)
+        result = run_tool(["shellcheck", "-f", "json", *files_in(folder, "*.sh")])
+        if result is not None:
+            run_tool(["shellcheck-sarif"], stdout_path=output_file, stdin_data=result.stdout)
 
 
 class PylintLinter(RecursiveLinter):
@@ -144,24 +207,18 @@ class PylintLinter(RecursiveLinter):
 
 
     @staticmethod
-    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> str:
-        exclude_option = f"--ignore={args.exclude}" if args.exclude else ""
-        recursive_option = "--recursive y" if args.recursive else ""
-        command = (
-            f"pylint {recursive_option} {folder}/*.py "
-            f"--output={output_file} -f json {exclude_option}"
-        )
-        return command
+    def _construct_command(args: LinterArgs, folder: str, output_file: str) -> List[str]:
+        exclude_option = [f"--ignore={','.join(args.exclude)}"] if args.exclude else []
+        recursive_option = ["--recursive", "y"] if args.recursive else []
+        return [
+            "pylint", *recursive_option, *files_in(folder, "*.py"),
+            f"--output={output_file}", "-f", "json", *exclude_option,
+        ]
 
     @staticmethod
-    def _execute_command(command: str):
-        result = subprocess.run(
-            command,
-            shell=True,
-            capture_output=True,
-            check=False,
-        )
-        if result.returncode > 126 or result.returncode == 1:
+    def _execute_command(command: List[str]):
+        result = run_tool(command)
+        if result is not None and (result.returncode > 126 or result.returncode == 1):
             logging.info("Pylint failed while running")
 
 
@@ -173,13 +230,11 @@ class MypyLinter(RecursiveLinter):
         if args.install:
             self.install_linter()
         output_file = get_output_file_name("mypy", folder) + ".xml"
-        exclude_option = f"--exclude {args.exclude}" if args.exclude else ""
-        command = (
-            f"mypy --warn-return-any --warn-unreachable "
-            f"--ignore-missing-imports {exclude_option} --junit-xml {output_file} {folder}"
-        )
-        logging.info(f"Running command: {command}")
-        subprocess.run(command, shell=True, check=False)
+        exclude_option = [arg for pattern in args.exclude for arg in ("--exclude", pattern)]
+        run_tool([
+            "mypy", "--warn-return-any", "--warn-unreachable", "--ignore-missing-imports",
+            *exclude_option, "--junit-xml", output_file, folder,
+        ])
 
 
 class NjsscanLinter(RecursiveLinter):
@@ -191,11 +246,8 @@ class NjsscanLinter(RecursiveLinter):
             self.install_linter()
         logging.info("Running njsscan...")
         output_file = get_output_file_name("njsscan", folder) + ".sarif"
-        result = subprocess.run(
-            f"njsscan --exit-warning --sarif -o {output_file} {folder}",
-            shell=True, capture_output=True, check=False,
-        )
-        if result.returncode > 1:
+        result = run_tool(["njsscan", "--exit-warning", "--sarif", "-o", output_file, folder])
+        if result is not None and result.returncode > 1:
             logging.warning(f"njsscan failed with return code: {result.returncode}")
 
 
@@ -209,34 +261,24 @@ class EslintLinter(RecursiveLinter):
         logging.info("Running eslint...")
         subprocess.run(["npm", "ci"], check=False)
         output_file = get_output_file_name("eslint", folder) + ".sarif"
-        exclude_option = f"--ignore-pattern {args.exclude}" if args.exclude else ""
-        subprocess.run(
-            f"eslint {exclude_option} --format json {folder} > {output_file}",
-            shell=True,
-            check=False,
-        )
+        exclude_option = [arg for pattern in args.exclude for arg in ("--ignore-pattern", pattern)]
+        run_tool(["eslint", *exclude_option, "--format", "json", folder], stdout_path=output_file)
 
 
 class NpmAuditLinter(RecursiveLinter):
     def run_linter(self, folder: str, args: LinterArgs) -> None:
         logging.info("Running npm audit...")
         output_file = get_output_file_name("npm-audit", folder) + ".json"
-        subprocess.run(
-            f"npm audit --audit-level=moderate --json > {output_file}",
-            shell=True,
-            check=False,
-        )
+        run_tool(["npm", "audit", "--audit-level=moderate", "--json"], stdout_path=output_file)
 
 
 class HadolintLinter(SingleDirLinter):
     def install_linter(self) -> None:
         version = LINTER_VERSIONS['hadolint']
         logging.info(f"Installing hadolint version {version}")
-        subprocess.run(
-            f"curl -L https://github.com/hadolint/hadolint/releases/download/v{version}/"
-            f"hadolint-Linux-x86_64 -o /usr/local/bin/hadolint && "
-            f"chmod +x /usr/local/bin/hadolint",
-            shell=True, check=False,
+        install_release(
+            f"https://github.com/hadolint/hadolint/releases/download/v{version}/hadolint-Linux-x86_64",
+            LINTER_CHECKSUMS['hadolint'], "/usr/local/bin/hadolint",
         )
 
     def _lint_single_folder(self, folder: str, args: LinterArgs) -> None:
@@ -244,21 +286,19 @@ class HadolintLinter(SingleDirLinter):
             self.install_linter()
         logging.info("Running hadolint...")
         output_file = get_output_file_name("hadolint", folder) + ".sarif"
-        result = subprocess.run(
-            f"hadolint -f sarif {folder}/Dockerfile",
-            shell=True, capture_output=True, check=False,
-        )
-        Path(output_file).write_text(result.stdout.decode())
+        run_tool(["hadolint", "-f", "sarif", os.path.join(folder, "Dockerfile")],
+                 stdout_path=output_file)
 
 
 class GolintersLinter(RecursiveLinter):
     def install_linter(self) -> None:
         version = LINTER_VERSIONS['golangci-lint']
         logging.info(f"Installing golangci-lint version {version}")
-        subprocess.run(
-            f"curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | "
-            f"sh -s -- -b /usr/local/bin v{version}",
-            shell=True, check=False,
+        name = f"golangci-lint-{version}-linux-amd64"
+        install_release(
+            f"https://github.com/golangci/golangci-lint/releases/download/v{version}/{name}.tar.gz",
+            LINTER_CHECKSUMS['golangci-lint'], "/usr/local/bin/golangci-lint",
+            member=f"{name}/golangci-lint",
         )
 
     def run_linter(self, folder: str, args: LinterArgs) -> None:
@@ -266,23 +306,15 @@ class GolintersLinter(RecursiveLinter):
             self.install_linter()
         logging.info("Running golangci-lint...")
         output_file = get_output_file_name("golangci", folder) + ".json"
-        result = subprocess.run(
-            f"golangci-lint run -v --out-format json {folder}/...",
-            shell=True, capture_output=True, check=False,
-        )
-        Path(output_file).write_text(result.stdout.decode())
+        run_tool(["golangci-lint", "run", "-v", "--out-format", "json", f"{folder}/..."],
+                 stdout_path=output_file)
 
 
 class LizardLinter(RecursiveLinter):
     def run_linter(self, folder: str, args: LinterArgs) -> None:
         logging.info("Running Lizardlint...")
         output_file = get_output_file_name("lizardlint", folder) + ".csv"
-        command = f'lizard --csv "{folder}" > "{output_file}"'
-        subprocess.run(
-            command,
-            shell=True,
-            check=False,
-        )
+        run_tool(["lizard", "--csv", folder], stdout_path=output_file)
 
     def install_linter(self) -> None:
         logging.info("Installing Lizardlint...")
@@ -386,7 +418,7 @@ def main() -> None:
                 return
 
             for folder in args.folders:
-                strategy.run_linters(folder, LinterArgs(exclude=" ".join(args.exclude), recursive=args.recursive_dir, install=args.install))
+                strategy.run_linters(folder, LinterArgs(exclude=args.exclude, recursive=args.recursive_dir, install=args.install))
         else:
             for strategy in strategies.values():
                 if hasattr(strategy, 'install_linter'):
@@ -399,7 +431,7 @@ def main() -> None:
         parser.error("The --language and --folders arguments are required if --install is not used.")
 
     linter_args = LinterArgs(
-        exclude=" ".join(args.exclude), recursive=args.recursive_dir, install=args.install
+        exclude=args.exclude, recursive=args.recursive_dir, install=args.install
     )
 
     Path(RESULTS_FOLDER).mkdir(exist_ok=True, mode=0o777)

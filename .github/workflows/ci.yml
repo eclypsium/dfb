@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   # ── dev_from_baseline ──────────────────────────────────────────────
 
@@ -182,3 +185,29 @@ jobs:
         working-directory: you_shall_not_parse
       - run: pytest -vv
         working-directory: you_shall_not_parse
+
+  # ── istari_linters ─────────────────────────────────────────────────
+
+  istari-bandit:
+    name: "istari: bandit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "bandit[toml]"
+      - run: bandit --recursive --configfile pyproject.toml istari_linters
+        working-directory: istari_linters
+
+  istari-tests:
+    name: "istari: tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: pytest -vv tests
+        working-directory: istari_linters
